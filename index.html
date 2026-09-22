@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Adaptive Revision Calendar</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="dashboard">
+        <aside class="sidebar">
+
+            <div class="logo">
+                <span><h2>MEMORA</h2></span>
+            </div>
+
+            <nav class="navigation">
+
+                <a href="#" class="nav-item active">
+                    Dashboard
+                </a>
+
+                <a href="#" class="nav-item">
+                    Calendar
+                </a>
+
+                <a href="#" class="nav-item">
+
+                    Tasks
+                </a>
+
+                <a href="#" class="nav-item">
+                    Progress
+                </a>
+
+            </nav>
+
+        </aside>
+
+
+        <main class="main-content">
+
+            <header class="header">
+
+                <div class="welcome">
+
+                    <h1>Good Morning</h1>
+                    <p>
+                        Let's make today productive.
+                    </p>
+
+                </div>
+
+            </header>
+
+
+            <section class="exam-card">
+
+                <div class="exam-info">
+
+                    <p class="small-heading">
+                        UPCOMING EXAM
+                    </p>
+
+                    <h2>
+                        Data Structures & Algorithms
+                    </h2>
+
+                    <p class="exam-date">
+                        September 30, 2026
+                    </p>
+
+                </div>
+
+
+                <div class="exam-countdown">
+
+                    <span>12</span>
+
+                    <p>Days Remaining</p>
+
+                </div>
+
+
+                <div class="good-luck">
+
+                    <p>Good luck!</p>
+
+                    <span>
+                        You've got this.
+                    </span>
+
+                </div>
+
+            </section>
+
+            <section class="stats">
+
+                <div class="stat-card">
+
+                    <div class="stat-top">
+                        <p>Total Tasks</p>
+
+                    </div>
+
+                    <h2>8</h2>
+
+                    <p class="stat-description">
+                        5 completed
+                    </p>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-top">
+                        <p>Progress</p>
+                    </div>
+
+                    <h2>68%</h2>
+
+                    <div class="progress-bar">
+
+                        <div class="progress">
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-top">
+                        <p>At Risk</p>
+                    </div>
+
+                    <h2>2</h2>
+
+                    <p class="stat-description">
+                        Topics need revision
+                    </p>
+
+                </div>
+
+            </section>
+
+
+            <!-- ================= TODAY'S PLAN ================= -->
+
+            <section class="today-section">
+
+                <div class="section-header">
+
+                    <div>
+
+                        <h2>Today's Plan</h2>
+
+                        <p>
+                            Tuesday, September 22
+                        </p>
+
+                    </div>
+
+                    <button class="add-task">
+                        + Add Task
+                    </button>
+
+                </div>
+
+
+                <div class="task-list">
+
+                    <!-- COMPLETED TASK -->
+
+                    <div class="task completed">
+
+                        <input type="checkbox" checked>
+
+                        <div class="task-content">
+
+                            <h3>Binary Search</h3>
+
+                            <p>
+                                Data Structures
+                            </p>
+
+                        </div>
+
+                        <span class="task-status">
+                            Completed
+                        </span>
+
+                    </div>
+
+
+                    <!-- TASK -->
+
+                    <div class="task">
+
+                        <input type="checkbox">
+
+                        <div class="task-content">
+
+                            <h3>Linked List</h3>
+
+                            <p>
+                                Data Structures
+                            </p>
+
+                        </div>
+
+                        <span class="task-priority">
+                            High
+                        </span>
+
+                    </div>
+
+
+                    <!-- TASK -->
+
+                    <div class="task">
+
+                        <input type="checkbox">
+
+                        <div class="task-content">
+
+                            <h3>Recursion</h3>
+
+                            <p>
+                                Algorithms
+                            </p>
+
+                        </div>
+
+                        <span class="task-priority">
+                            Medium
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- ================= CALENDAR ================= -->
+
+            <section class="calendar-section">
+
+                <div class="section-header">
+
+                    <div>
+
+                        <h2>Revision Calendar</h2>
+
+                        <p>
+                            Track what you've completed each day.
+                        </p>
+
+                    </div>
+
+                    <div class="calendar-controls">
+
+                        <button>‹</button>
+
+                        <span>September 2026</span>
+
+                        <button>›</button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- DAYS -->
+
+                <div class="calendar">
+
+                    <div class="calendar-day-name">
+                        Mon
+                    </div>
+
+                    <div class="calendar-day-name">
+                        Tue
+                    </div>
+
+                    <div class="calendar-day-name">
+                        Wed
+                    </div>
+
+                    <div class="calendar-day-name">
+                        Thu
+                    </div>
+
+                    <div class="calendar-day-name">
+                        Fri
+                    </div>
+
+                    <div class="calendar-day-name">
+                        Sat
+                    </div>
+
+                    <div class="calendar-day-name">
+                        Sun
+                    </div>
+
+
+                    <!-- WEEK -->
+
+                    <div class="day">
+                        <span>21</span>
+                        <small>✓ Arrays</small>
+                    </div>
+
+                    <div class="day today">
+                        <span>22</span>
+
+                        <small>
+                            ✓ Binary Search
+                        </small>
+
+                        <small>
+                            ✓ Linked List
+                        </small>
+
+                    </div>
+
+                    <div class="day">
+                        <span>23</span>
+                    </div>
+
+                    <div class="day">
+                        <span>24</span>
+                    </div>
+
+                    <div class="day">
+                        <span>25</span>
+                    </div>
+
+                    <div class="day">
+                        <span>26</span>
+                    </div>
+
+                    <div class="day">
+                        <span>27</span>
+                    </div>
+
+
+                    <div class="day">
+                        <span>28</span>
+                    </div>
+
+                    <div class="day">
+                        <span>29</span>
+                    </div>
+
+                    <div class="day">
+                        <span>30</span>
+                    </div>
+
+                    <div class="day next-month">
+                        <span>1</span>
+                    </div>
+
+                    <div class="day next-month">
+                        <span>2</span>
+                    </div>
+
+                    <div class="day next-month">
+                        <span>3</span>
+                    </div>
+
+                    <div class="day next-month">
+                        <span>4</span>
+                    </div>
+
+                </div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+</body>
+
+</html>
