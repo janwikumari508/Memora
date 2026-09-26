@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Tasks - MEMORA</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body>
+
+    <div class="dashboard">
+
+
+        <!-- =========================
+             SIDEBAR
+        ========================== -->
+
+        <aside class="sidebar">
+
+            <div class="logo">
+                <span>
+                    <h2>MEMORA</h2>
+                </span>
+            </div>
+
+
+            <nav class="navigation">
+
+                <a href="index.html" class="nav-item">
+                    Dashboard
+                </a>
+
+                <a href="calendar.html" class="nav-item">
+                    Calendar
+                </a>
+
+                <a href="tasks.html" class="nav-item active">
+                    Tasks
+                </a>
+
+                <a href="progress.html" class="nav-item">
+                    Progress
+                </a>
+
+            </nav>
+
+        </aside>
+
+
+
+        <!-- =========================
+             MAIN CONTENT
+        ========================== -->
+
+        <main class="main-content">
+
+
+            <!-- PAGE HEADER -->
+
+            <header class="header">
+
+                <div class="welcome">
+
+                    <h1>Tasks</h1>
+
+                    <p>
+                        Manage your study tasks and stay on track.
+                    </p>
+
+                </div>
+
+
+                <button class="add-task" id="addTaskBtn" type="button">
+                    + Add Task
+                </button>
+
+            </header>
+
+
+
+            <!-- =========================
+                 FILTERS
+            ========================== -->
+
+            <section class="task-filters">
+
+                <button class="filter active" type="button">
+                    All
+                </button>
+
+                <button class="filter" type="button">
+                    Pending
+                </button>
+
+                <button class="filter" type="button">
+                    Completed
+                </button>
+
+                <button class="filter" type="button">
+                    High Priority
+                </button>
+
+            </section>
+
+
+
+            <!-- =========================
+                 TODAY'S TASKS
+            ========================== -->
+
+            <section class="today-section">
+
+
+                <div class="section-header">
+
+                    <div>
+
+                        <h2>Today's Tasks</h2>
+
+                        <p>
+                            Tasks you need to complete today.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="task-list" id="todayTaskList">
+
+
+                    <!-- COMPLETED TASK -->
+
+                    <div class="task completed">
+
+                        <input type="checkbox" checked>
+
+
+                        <div class="task-content">
+
+                            <h3>
+                                Binary Search
+                            </h3>
+
+                            <p>
+                                Data Structures
+                            </p>
+
+                        </div>
+
+
+                        <span class="task-status">
+                            Completed
+                        </span>
+
+                    </div>
+
+
+
+                    <!-- HIGH PRIORITY TASK -->
+
+                    <div class="task">
+
+                        <input type="checkbox">
+
+
+                        <div class="task-content">
+
+                            <h3>
+                                Linked List
+                            </h3>
+
+                            <p>
+                                Data Structures
+                            </p>
+
+                        </div>
+
+
+                        <span class="task-priority">
+                            High
+                        </span>
+
+                    </div>
+
+
+
+                    <!-- MEDIUM PRIORITY TASK -->
+
+                    <div class="task">
+
+                        <input type="checkbox">
+
+
+                        <div class="task-content">
+
+                            <h3>
+                                Recursion
+                            </h3>
+
+                            <p>
+                                Algorithms
+                            </p>
+
+                        </div>
+
+
+                        <span class="task-priority">
+                            Medium
+                        </span>
+
+                    </div>
+
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =========================
+                 UPCOMING TASKS
+            ========================== -->
+
+            <section class="today-section">
+
+
+                <div class="section-header">
+
+                    <div>
+
+                        <h2>Upcoming Tasks</h2>
+
+                        <p>
+                            Tasks scheduled for the upcoming days.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="task-list">
+
+
+                    <!-- BINARY TREES -->
+
+                    <div class="task">
+
+                        <input type="checkbox">
+
+
+                        <div class="task-content">
+
+                            <h3>
+                                Binary Trees
+                            </h3>
+
+                            <p>
+                                Data Structures · Tomorrow
+                            </p>
+
+                        </div>
+
+
+                        <span class="task-priority">
+                            High
+                        </span>
+
+                    </div>
+
+
+
+                    <!-- GRAPH TRAVERSAL -->
+
+                    <div class="task">
+
+                        <input type="checkbox">
+
+
+                        <div class="task-content">
+
+                            <h3>
+                                Graph Traversal
+                            </h3>
+
+                            <p>
+                                Algorithms · September 24
+                            </p>
+
+                        </div>
+
+
+                        <span class="task-priority">
+                            Medium
+                        </span>
+
+                    </div>
+
+
+                </div>
+
+            </section>
+
+
+        </main>
+
+    </div>
+
+
+
+    <!-- =================================================
+         ADD TASK POPUP
+    ================================================== -->
+
+    <div class="modal-overlay" id="taskModal">
+
+
+        <div class="task-modal">
+
+
+            <!-- MODAL HEADER -->
+
+            <div class="modal-header">
+
+                <h2>
+                    Add New Task
+                </h2>
+
+
+                <button class="close-modal" id="closeTaskModal" type="button">
+                    ×
+                </button>
+
+            </div>
+
+
+
+            <!-- TASK FORM -->
+
+            <form id="newTaskForm">
+
+
+                <!-- TASK NAME -->
+
+                <label for="taskName">
+                    Task Name
+                </label>
+
+                <input type="text" id="taskName" placeholder="e.g. Binary Search" required>
+
+
+
+                <!-- SUBJECT -->
+
+                <label for="taskSubject">
+                    Subject
+                </label>
+
+                <input type="text" id="taskSubject" placeholder="e.g. Data Structures" required>
+
+
+
+                <!-- DATE -->
+
+                <label for="taskDate">
+                    Date
+                </label>
+
+                <input type="date" id="taskDate" required>
+
+
+
+                <!-- PRIORITY -->
+
+                <label for="taskPriority">
+                    Priority
+                </label>
+
+                <select id="taskPriority">
+
+                    <option value="High">
+                        High
+                    </option>
+
+                    <option value="Medium">
+                        Medium
+                    </option>
+
+                    <option value="Low">
+                        Low
+                    </option>
+
+                </select>
+
+
+
+                <!-- ADD BUTTON -->
+
+                <button type="submit" class="save-task">
+                    Add Task
+                </button>
+
+
+            </form>
+
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================== -->
+
+    <script src="script.js"></script>
+
+
+</body>
+
+</html>

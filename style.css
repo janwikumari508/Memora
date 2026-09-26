@@ -1,6 +1,6 @@
-/* =========================
+/* =========================================================
    RESET
-========================= */
+========================================================= */
 
 * {
     margin: 0;
@@ -18,9 +18,9 @@ body {
 }
 
 
-/* =========================
-   DASHBOARD
-========================= */
+/* =========================================================
+   DASHBOARD LAYOUT
+========================================================= */
 
 .dashboard {
     min-height: 100vh;
@@ -29,9 +29,9 @@ body {
 }
 
 
-/* =========================
+/* =========================================================
    SIDEBAR
-========================= */
+========================================================= */
 
 .sidebar {
     width: 240px;
@@ -46,8 +46,12 @@ body {
     flex-direction: column;
 
     border-right: 1px solid #eeeeee;
+
+    flex-shrink: 0;
 }
 
+
+/* LOGO */
 
 .logo {
     margin-bottom: 50px;
@@ -66,8 +70,11 @@ body {
 }
 
 
+/* NAVIGATION */
+
 .navigation {
     display: flex;
+
     flex-direction: column;
 
     gap: 8px;
@@ -84,6 +91,7 @@ body {
     border-radius: 8px;
 
     display: flex;
+
     align-items: center;
 
     gap: 12px;
@@ -93,14 +101,14 @@ body {
 
 
 .nav-item:hover {
-    background-color: #f5f5ff;
+    background-color: #f0f7f2;
 
-    color: #6366f1;
+    color: #106027;
 }
 
 
 .nav-item.active {
-    background-color: #eeeeff;
+    background-color: #e8f7ed;
 
     color: #106027;
 
@@ -108,14 +116,9 @@ body {
 }
 
 
-.sidebar-bottom {
-    margin-top: auto;
-}
-
-
-/* =========================
+/* =========================================================
    MAIN CONTENT
-========================= */
+========================================================= */
 
 .main-content {
     flex: 1;
@@ -123,12 +126,14 @@ body {
     padding: 35px 45px;
 
     max-width: 1500px;
+
+    width: 100%;
 }
 
 
-/* =========================
+/* =========================================================
    HEADER
-========================= */
+========================================================= */
 
 .header {
     display: flex;
@@ -155,36 +160,39 @@ body {
 }
 
 
-.header-right {
+/* =========================================================
+   GENERAL PAGE HEADER
+   Used on Calendar, Tasks and Progress
+========================================================= */
+
+.page-header {
     display: flex;
+
+    justify-content: space-between;
 
     align-items: center;
 
-    gap: 25px;
+    margin-bottom: 30px;
 }
 
 
-.notification {
-    border: none;
+.page-header h1 {
+    font-size: 28px;
 
-    background-color: white;
-
-    width: 40px;
-    height: 40px;
-
-    border-radius: 50%;
-
-    cursor: pointer;
-
-    font-size: 17px;
+    margin-bottom: 7px;
 }
 
 
+.page-header p {
+    color: #777;
+
+    font-size: 14px;
+}
 
 
-/* =========================
+/* =========================================================
    EXAM CARD
-========================= */
+========================================================= */
 
 .exam-card {
     background-color: #106027;
@@ -270,15 +278,14 @@ body {
 }
 
 
-/* =========================
+/* =========================================================
    STATISTICS
-========================= */
+========================================================= */
 
 .stats {
     display: grid;
 
-    grid-template-columns:
-        repeat(3, 1fr);
+    grid-template-columns: repeat(3, 1fr);
 
     gap: 20px;
 
@@ -336,9 +343,9 @@ body {
 }
 
 
-/* =========================
+/* =========================================================
    PROGRESS BAR
-========================= */
+========================================================= */
 
 .progress-bar {
     height: 7px;
@@ -362,6 +369,9 @@ body {
 }
 
 
+/* =========================================================
+   TODAY'S PLAN
+========================================================= */
 
 .today-section,
 .calendar-section {
@@ -402,6 +412,9 @@ body {
 }
 
 
+/* =========================================================
+   ADD TASK BUTTON
+========================================================= */
 
 .add-task {
     border: none;
@@ -421,8 +434,13 @@ body {
 
 
 .add-task:hover {
-    background-color: #048a2a;
+    background-color: #087a28;
 }
+
+
+/* =========================================================
+   TASK LIST
+========================================================= */
 
 .task-list {
     display: flex;
@@ -463,7 +481,6 @@ body {
 }
 
 
-
 .task-content h3 {
     font-size: 14px;
 
@@ -477,6 +494,8 @@ body {
     color: #888;
 }
 
+
+/* TASK LABELS */
 
 .task-status,
 .task-priority {
@@ -509,6 +528,9 @@ body {
 }
 
 
+/* =========================================================
+   CALENDAR CONTROLS
+========================================================= */
 
 .calendar-controls {
     display: flex;
@@ -525,11 +547,19 @@ body {
     background-color: #f5f5f5;
 
     width: 30px;
+
     height: 30px;
 
     border-radius: 6px;
 
     cursor: pointer;
+}
+
+
+.calendar-controls button:hover {
+    background-color: #e8f7ed;
+
+    color: #106027;
 }
 
 
@@ -540,11 +570,14 @@ body {
 }
 
 
+/* =========================================================
+   CALENDAR
+========================================================= */
+
 .calendar {
     display: grid;
 
-    grid-template-columns:
-        repeat(7, 1fr);
+    grid-template-columns: repeat(7, 1fr);
 
     gap: 8px;
 }
@@ -590,7 +623,7 @@ body {
 
     color: #106027;
 
-    background-color: #f0f0ff;
+    background-color: #f0f7f2;
 
     padding: 3px 5px;
 
@@ -605,12 +638,732 @@ body {
 }
 
 
-.next-month {
+.next-month,
+.previous-month {
     color: #bbb;
 
     background-color: #fafafa;
 }
 
+
+/* =========================================================
+   CALENDAR PAGE
+========================================================= */
+
+.calendar-page-card {
+    background-color: white;
+
+    padding: 30px;
+
+    border-radius: 12px;
+
+    border: 1px solid #eeeeee;
+
+    margin-bottom: 20px;
+}
+
+
+.calendar-top {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-bottom: 25px;
+}
+
+
+.calendar-top h2 {
+    font-size: 20px;
+
+    margin-bottom: 5px;
+}
+
+
+.calendar-top p {
+    color: #888;
+
+    font-size: 13px;
+}
+
+
+/* LARGE CALENDAR */
+
+.large-calendar {
+    gap: 10px;
+}
+
+
+.large-calendar .day {
+    min-height: 110px;
+
+    padding: 12px;
+}
+
+
+/* EXAM DAY */
+
+.exam-day {
+    border: 2px solid #106027;
+}
+
+
+.exam-day small {
+    background-color: #e8f7ed !important;
+
+    color: #106027 !important;
+
+    font-weight: bold;
+}
+
+
+/* =========================================================
+   CALENDAR LEGEND
+========================================================= */
+
+.calendar-info {
+    background-color: white;
+
+    padding: 18px 25px;
+
+    border-radius: 12px;
+
+    border: 1px solid #eeeeee;
+
+    display: flex;
+
+    gap: 30px;
+
+    margin-bottom: 25px;
+}
+
+
+.legend-item {
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+}
+
+
+.legend-item p {
+    font-size: 12px;
+
+    color: #777;
+}
+
+
+.legend {
+    width: 10px;
+
+    height: 10px;
+
+    border-radius: 50%;
+}
+
+
+.completed-dot {
+    background-color: #106027;
+}
+
+
+.today-dot {
+    border: 2px solid #106027;
+}
+
+
+.exam-dot {
+    background-color: #d97706;
+}
+
+
+/* =========================================================
+   CALENDAR TODAY'S REVISION
+========================================================= */
+
+.calendar-summary {
+    background-color: white;
+
+    padding: 25px;
+
+    border-radius: 12px;
+
+    border: 1px solid #eeeeee;
+}
+
+
+.calendar-summary h2 {
+    font-size: 19px;
+
+    margin-bottom: 20px;
+}
+
+
+.revision-list {
+    display: flex;
+
+    flex-direction: column;
+}
+
+
+.revision-item {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    padding: 15px 5px;
+
+    border-bottom: 1px solid #eeeeee;
+}
+
+
+.revision-item:last-child {
+    border-bottom: none;
+}
+
+
+.revision-item h3 {
+    font-size: 14px;
+
+    margin-bottom: 4px;
+}
+
+
+.revision-item p {
+    font-size: 12px;
+
+    color: #888;
+}
+
+
+.completed-label,
+.pending-label {
+    font-size: 11px;
+
+    padding: 5px 9px;
+
+    border-radius: 20px;
+}
+
+
+.completed-label {
+    background-color: #e8f7ed;
+
+    color: #26834a;
+}
+
+
+.pending-label {
+    background-color: #fff3e6;
+
+    color: #d97706;
+}
+
+
+/* =========================================================
+   TASK PAGE
+========================================================= */
+
+
+/* TASK FILTERS */
+
+.task-filters {
+    display: flex;
+
+    gap: 10px;
+
+    margin-bottom: 25px;
+}
+
+
+.filter {
+    border: 1px solid #eeeeee;
+
+    background-color: white;
+
+    padding: 9px 15px;
+
+    border-radius: 7px;
+
+    cursor: pointer;
+
+    color: #777;
+
+    font-size: 12px;
+}
+
+
+.filter:hover {
+    color: #106027;
+}
+
+
+.filter.active {
+    background-color: #106027;
+
+    color: white;
+
+    border-color: #106027;
+}
+
+
+/* ALL TASKS */
+
+.all-tasks {
+    background-color: white;
+
+    border: 1px solid #eeeeee;
+
+    border-radius: 12px;
+
+    padding: 25px;
+}
+
+
+.task-group {
+    margin-bottom: 30px;
+}
+
+
+.task-group:last-child {
+    margin-bottom: 0;
+}
+
+
+.task-group h2 {
+    font-size: 17px;
+
+    margin-bottom: 15px;
+}
+
+
+/* FULL TASK */
+
+.full-task {
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    padding: 17px 5px;
+
+    border-bottom: 1px solid #eeeeee;
+}
+
+
+.full-task:last-child {
+    border-bottom: none;
+}
+
+
+.full-task input {
+    width: 17px;
+
+    height: 17px;
+
+    cursor: pointer;
+}
+
+
+.full-task .task-content {
+    flex: 1;
+}
+
+
+.full-task h3 {
+    font-size: 14px;
+
+    margin-bottom: 5px;
+}
+
+
+.full-task p {
+    font-size: 12px;
+
+    color: #888;
+}
+
+
+/* TASK PRIORITY */
+
+.high-priority,
+.medium-priority,
+.full-task .task-status {
+    font-size: 11px;
+
+    padding: 5px 9px;
+
+    border-radius: 20px;
+}
+
+
+.high-priority {
+    background-color: #fff3e6;
+
+    color: #d97706;
+}
+
+
+.medium-priority {
+    background-color: #f0f0ff;
+
+    color: #6366f1;
+}
+
+
+/* =========================================================
+   PROGRESS PAGE
+========================================================= */
+
+
+/* OVERALL PROGRESS */
+
+.overall-progress {
+    background-color: white;
+
+    border: 1px solid #eeeeee;
+
+    border-radius: 12px;
+
+    padding: 30px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 50px;
+
+    margin-bottom: 25px;
+}
+
+
+/* PROGRESS CIRCLE */
+
+.progress-circle {
+    width: 150px;
+
+    height: 150px;
+
+    border-radius: 50%;
+
+    border: 12px solid #e8f7ed;
+
+    border-top-color: #106027;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    flex-shrink: 0;
+}
+
+
+.progress-circle div {
+    text-align: center;
+}
+
+
+.progress-circle strong {
+    display: block;
+
+    font-size: 30px;
+}
+
+
+.progress-circle span {
+    font-size: 11px;
+
+    color: #888;
+}
+
+
+/* PROGRESS INFO */
+
+.progress-info {
+    flex: 1;
+}
+
+
+.progress-info h2 {
+    font-size: 20px;
+
+    margin-bottom: 7px;
+}
+
+
+.progress-info>p {
+    color: #888;
+
+    font-size: 13px;
+
+    margin-bottom: 20px;
+}
+
+
+/* LARGE PROGRESS */
+
+.large-progress-bar {
+    height: 8px;
+
+    background-color: #eeeeee;
+
+    border-radius: 10px;
+
+    overflow: hidden;
+
+    margin-bottom: 20px;
+}
+
+
+.large-progress {
+    height: 100%;
+
+    width: 68%;
+
+    background-color: #106027;
+}
+
+
+/* PROGRESS NUMBERS */
+
+.progress-numbers {
+    display: flex;
+
+    gap: 40px;
+}
+
+
+.progress-numbers strong {
+    display: block;
+
+    font-size: 20px;
+}
+
+
+.progress-numbers span {
+    font-size: 11px;
+
+    color: #888;
+}
+
+
+/* =========================================================
+   SUBJECT PROGRESS
+========================================================= */
+
+.subject-section {
+    background-color: white;
+
+    border: 1px solid #eeeeee;
+
+    border-radius: 12px;
+
+    padding: 25px;
+
+    margin-bottom: 25px;
+}
+
+
+.subject-section h2,
+.activity-section h2 {
+    font-size: 19px;
+
+    margin-bottom: 25px;
+}
+
+
+.subject {
+    margin-bottom: 22px;
+}
+
+
+.subject:last-child {
+    margin-bottom: 0;
+}
+
+
+.subject-header {
+    display: flex;
+
+    justify-content: space-between;
+
+    margin-bottom: 8px;
+
+    font-size: 13px;
+}
+
+
+.subject-header strong {
+    color: #106027;
+}
+
+
+.subject-bar {
+    height: 7px;
+
+    background-color: #eeeeee;
+
+    border-radius: 10px;
+
+    overflow: hidden;
+}
+
+
+.subject-fill {
+    height: 100%;
+
+    background-color: #106027;
+}
+
+
+/* =========================================================
+   AT RISK
+========================================================= */
+
+.risk-section {
+    background-color: white;
+
+    border: 1px solid #eeeeee;
+
+    border-radius: 12px;
+
+    padding: 25px;
+
+    margin-bottom: 25px;
+}
+
+
+.risk-section .section-header {
+    margin-bottom: 10px;
+}
+
+
+.risk-item {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    padding: 15px 5px;
+
+    border-bottom: 1px solid #eeeeee;
+}
+
+
+.risk-item:last-child {
+    border-bottom: none;
+}
+
+
+.risk-item h3 {
+    font-size: 14px;
+
+    margin-bottom: 4px;
+}
+
+
+.risk-item p {
+    font-size: 12px;
+
+    color: #888;
+}
+
+
+.risk-item span {
+    font-size: 11px;
+
+    padding: 5px 9px;
+
+    border-radius: 20px;
+
+    background-color: #fff3e6;
+
+    color: #d97706;
+}
+
+
+/* =========================================================
+   RECENT ACTIVITY
+========================================================= */
+
+.activity-section {
+    background-color: white;
+
+    border: 1px solid #eeeeee;
+
+    border-radius: 12px;
+
+    padding: 25px;
+}
+
+
+.activity {
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    padding: 14px 5px;
+
+    border-bottom: 1px solid #eeeeee;
+}
+
+
+.activity:last-child {
+    border-bottom: none;
+}
+
+
+.activity>span {
+    width: 30px;
+
+    height: 30px;
+
+    border-radius: 50%;
+
+    background-color: #e8f7ed;
+
+    color: #106027;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 12px;
+}
+
+
+.activity h3 {
+    font-size: 13px;
+
+    margin-bottom: 4px;
+}
+
+
+.activity p {
+    color: #888;
+
+    font-size: 11px;
+}
+
+
+/* =========================================================
+   RESPONSIVE DESIGN
+========================================================= */
+
+
+/* TABLET */
 
 @media (max-width: 900px) {
 
@@ -618,9 +1371,11 @@ body {
         width: 190px;
     }
 
+
     .main-content {
         padding: 25px;
     }
+
 
     .exam-card {
         flex-direction: column;
@@ -630,12 +1385,20 @@ body {
         gap: 20px;
     }
 
+
     .good-luck {
         text-align: left;
     }
 
+
+    .overall-progress {
+        gap: 30px;
+    }
+
 }
 
+
+/* MOBILE */
 
 @media (max-width: 700px) {
 
@@ -643,9 +1406,16 @@ body {
         display: none;
     }
 
+
+    .main-content {
+        padding: 20px;
+    }
+
+
     .stats {
         grid-template-columns: 1fr;
     }
+
 
     .header {
         flex-direction: column;
@@ -655,8 +1425,266 @@ body {
         gap: 20px;
     }
 
+
+    .page-header {
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 15px;
+    }
+
+
     .calendar {
+        overflow-x: auto;
+
+        min-width: 650px;
+    }
+
+
+    .calendar-page-card {
         overflow-x: auto;
     }
 
+
+    .calendar-top {
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 20px;
+    }
+
+
+    .calendar-info {
+        flex-direction: column;
+
+        gap: 12px;
+    }
+
+
+    .overall-progress {
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 25px;
+    }
+
+
+    .progress-numbers {
+        gap: 20px;
+    }
+
+
+    .task-filters {
+        overflow-x: auto;
+
+        padding-bottom: 5px;
+    }
+
+}
+
+
+/* SMALL MOBILE */
+
+@media (max-width: 500px) {
+
+    .exam-card {
+        padding: 22px;
+    }
+
+
+    .exam-info h2 {
+        font-size: 18px;
+    }
+
+
+    .calendar-page-card,
+    .all-tasks,
+    .overall-progress,
+    .subject-section,
+    .risk-section,
+    .activity-section {
+        padding: 20px;
+    }
+
+
+    .full-task,
+    .task,
+    .revision-item,
+    .risk-item {
+        gap: 10px;
+    }
+
+
+    .progress-circle {
+        width: 130px;
+
+        height: 130px;
+    }
+
+
+    .progress-circle strong {
+        font-size: 26px;
+    }
+
+}
+/* =================================
+   ADD TASK MODAL
+================================= */
+
+/* Dark background behind popup */
+
+.modal-overlay {
+    display: none;
+
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background: rgba(0, 0, 0, 0.45);
+
+    justify-content: center;
+    align-items: center;
+
+    z-index: 9999;
+}
+
+
+/* Popup box */
+
+.task-modal {
+    width: 420px;
+
+    background: white;
+
+    padding: 25px;
+
+    border-radius: 12px;
+
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+}
+
+
+/* Popup heading */
+
+.modal-header {
+    display: flex;
+
+    justify-content: space-between;
+    align-items: center;
+
+    margin-bottom: 20px;
+}
+
+.modal-header h2 {
+    margin: 0;
+
+    font-size: 22px;
+
+    color: #202124;
+}
+
+
+/* Close button */
+
+.close-modal {
+    border: none;
+
+    background: transparent;
+
+    font-size: 28px;
+
+    color: #777;
+
+    cursor: pointer;
+
+    line-height: 1;
+}
+
+.close-modal:hover {
+    color: #202124;
+}
+
+
+/* Form */
+
+#newTaskForm {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 8px;
+}
+
+
+/* Labels */
+
+#newTaskForm label {
+    font-size: 14px;
+
+    font-weight: 600;
+
+    color: #333;
+
+    margin-top: 8px;
+}
+
+
+/* Inputs */
+
+#newTaskForm input,
+#newTaskForm select {
+    width: 100%;
+
+    padding: 11px 12px;
+
+    border: 1px solid #dcdcdc;
+
+    border-radius: 7px;
+
+    font-size: 14px;
+
+    background: white;
+
+    outline: none;
+}
+
+#newTaskForm input:focus,
+#newTaskForm select:focus {
+    border-color: #106027;
+}
+
+
+/* Add Task button */
+
+.save-task {
+    width: 100%;
+
+    margin-top: 15px;
+
+    padding: 12px;
+
+    border: none;
+
+    border-radius: 7px;
+
+    background: #106027;
+
+    color: white;
+
+    font-size: 15px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+}
+
+.save-task:hover {
+    background: #0b4d20;
 }
