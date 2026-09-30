@@ -45,8 +45,8 @@ body {
     border-right: 1px solid #eeeeee;
 
     flex-shrink: 0;
+    position: relative;
 }
-
 
 /* LOGO */
 
@@ -1637,19 +1637,19 @@ body {
 
 #newTaskForm input,
 #newTaskForm select {
-    width: 100%;
+    width:100%;
 
-    padding: 11px 12px;
+    padding:11px 12px;
 
-    border: 1px solid #dcdcdc;
+    border:1px solid #dcdcdc;
 
-    border-radius: 7px;
+    border-radius:7px;
 
-    font-size: 14px;
+    font-size:14px;
 
-    background: white;
+    background:white;
 
-    outline: none;
+    outline:none;
 }
 
 #newTaskForm input:focus,
@@ -1661,27 +1661,297 @@ body {
 /* Add Task button */
 
 .save-task {
-    width: 100%;
+    width:100%;
 
-    margin-top: 15px;
+    margin-top:15px;
 
-    padding: 12px;
+    padding:12px;
 
-    border: none;
+    border:none;
 
-    border-radius: 7px;
+    border-radius:7px;
 
-    background: #106027;
+    background:#106027;
 
-    color: white;
+    color:white;
 
-    font-size: 15px;
+    font-size:15px;
 
-    font-weight: 600;
+    font-weight:600;
 
-    cursor: pointer;
+    cursor:pointer;
 }
 
 .save-task:hover {
     background: #0b4d20;
+}
+
+
+/* Dark Mode */
+
+
+body.dark-mode {
+    background-color: #121212;
+    color: #f5f5f5;
+}
+
+/* Sidebar */
+
+body.dark-mode .sidebar {
+    background-color: #181818;
+    border-color: #333;
+}
+
+body.dark-mode .nav-item {
+    color: #aaa;
+}
+
+body.dark-mode .nav-item:hover {
+    background-color: #252525;
+}
+
+body.dark-mode .nav-item.active {
+    background-color: #263b2d;
+    color: #7ee49a;
+}
+
+/* Main headings and text */
+
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode h3,
+body.dark-mode p,
+body.dark-mode span {
+    color: #f5f5f5;
+}
+
+/* Cards */
+
+body.dark-mode .stat-card,
+body.dark-mode .today-section,
+body.dark-mode .calendar-section,
+body.dark-mode .calendar-page-card,
+body.dark-mode .calendar-info,
+body.dark-mode .calendar-summary,
+body.dark-mode .all-tasks,
+body.dark-mode .overall-progress,
+body.dark-mode .subject-section,
+body.dark-mode .risk-section,
+body.dark-mode .activity-section {
+    background-color: #1e1e1e;
+    border-color: #333;
+}
+
+/* Tasks */
+
+body.dark-mode .task,
+body.dark-mode .full-task,
+body.dark-mode .revision-item,
+body.dark-mode .risk-item,
+body.dark-mode .activity {
+    background-color: #1e1e1e;
+    border-color: #333;
+}
+
+/* Calendar */
+
+body.dark-mode .day {
+    background-color: #1e1e1e;
+    border-color: #333;
+}
+
+body.dark-mode .next-month,
+body.dark-mode .previous-month {
+    background-color: #181818;
+    color: #666;
+}
+
+/* Buttons */
+
+body.dark-mode .calendar-controls button,
+body.dark-mode .filter {
+    background-color: #2a2a2a;
+    color: #eee;
+    border-color: #444;
+}
+
+/* Theme button */
+
+body.dark-mode .theme-toggle {
+    background-color: #2a2a2a;
+    color: white;
+}
+
+
+
+/* Dark Mode Button */
+
+.dark-mode-btn{
+     margin-top: auto;
+
+    width: 45px;
+    height: 45px;
+
+    border: none;
+    border-radius: 10px;
+
+    background-color: #f5f5f5;
+
+    cursor: pointer;
+
+    font-size: 20px;
+
+    align-self: flex-start;
+}
+
+.dark-mode-btn:hover{
+    background-color:#e8f7ed;
+}
+
+.theme-toggle {
+    position: absolute;
+    bottom: 30px;
+    right: 20px;
+
+    width: 45px;
+    height: 45px;
+
+    border: none;
+    border-radius: 10px;
+
+    background-color: #f5f5f5;
+    font-size: 20px;
+
+    cursor: pointer;
+}
+
+.theme-toggle:hover {
+    background-color: #e8e8e8;
+}
+
+/* Dark Mode - Add Task Modal */
+
+body.dark-mode .task-modal {
+    background-color: #1e1e1e;
+    color: #f5f5f5;
+}
+
+body.dark-mode .modal-header h2 {
+    color: #f5f5f5;
+}
+
+body.dark-mode #newTaskForm label {
+    color: #ddd;
+}
+
+body.dark-mode #newTaskForm input,
+body.dark-mode #newTaskForm select {
+    background-color: #2a2a2a;
+    color: #f5f5f5;
+    border-color: #444;
+}
+
+body.dark-mode #newTaskForm input::placeholder {
+    color: #999;
+}
+
+body.dark-mode .close-modal {
+    color: #aaa;
+}
+
+body.dark-mode .close-modal:hover {
+    color: white;
+}
+
+/* Dark Mode Additional Fixes */
+
+/* Typography fixes for contrast */
+body.dark-mode .task-content p,
+body.dark-mode .full-task p,
+body.dark-mode .revision-item p,
+body.dark-mode .risk-item p,
+body.dark-mode .activity p,
+body.dark-mode .stat-description,
+body.dark-mode .stat-top p,
+body.dark-mode .welcome p,
+body.dark-mode .page-header p,
+body.dark-mode .section-header p,
+body.dark-mode .calendar-top p,
+body.dark-mode .legend-item p,
+body.dark-mode .progress-info > p,
+body.dark-mode .calendar-day-name,
+body.dark-mode .subject-header {
+    color: #aaa;
+}
+
+body.dark-mode .logo span,
+body.dark-mode .stat-top span,
+body.dark-mode .subject-header strong {
+    color: #7ee49a;
+}
+
+body.dark-mode .progress-circle span,
+body.dark-mode .progress-numbers span,
+body.dark-mode .exam-countdown p,
+body.dark-mode .good-luck span {
+    color: #aaa;
+}
+
+/* Labels and Tags */
+body.dark-mode .task-status,
+body.dark-mode .completed-label,
+body.dark-mode .day small,
+body.dark-mode .activity > span {
+    background-color: #1a2e21;
+    color: #7ee49a;
+}
+
+body.dark-mode .exam-day small {
+    background-color: #1a2e21 !important;
+    color: #7ee49a !important;
+}
+
+body.dark-mode .task-priority,
+body.dark-mode .high-priority,
+body.dark-mode .pending-label,
+body.dark-mode .risk-item span {
+    background-color: #3d2a13;
+    color: #ffb866;
+}
+
+body.dark-mode .medium-priority {
+    background-color: #22223b;
+    color: #9a9dff;
+}
+
+/* Progress Bars */
+body.dark-mode .progress-bar,
+body.dark-mode .large-progress-bar,
+body.dark-mode .subject-bar {
+    background-color: #333;
+}
+
+body.dark-mode .progress-circle {
+    border-color: #1a2e21;
+    border-top-color: #7ee49a;
+}
+
+/* Calendar elements */
+body.dark-mode .day.today {
+    border-color: #7ee49a;
+    background-color: #1a2e21;
+}
+
+body.dark-mode .exam-day {
+    border-color: #ffb866;
+}
+
+/* Dark Mode Button */
+body.dark-mode .dark-mode-btn {
+    background-color: #2a2a2a;
+    color: #f5f5f5;
+}
+
+body.dark-mode .dark-mode-btn:hover {
+    background-color: #3a3a3a;
 }
