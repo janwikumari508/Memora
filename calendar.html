@@ -4,28 +4,22 @@
 <head>
 
     <meta charset="UTF-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Calendar - Memora</title>
 
     <link rel="stylesheet" href="style.css">
+
     <script>
-
         if (localStorage.getItem("theme") === "dark") {
-
             document.documentElement.classList.add("dark-mode");
-
         }
-
     </script>
-
 
 </head>
 
 
 <body>
-    <script src="script.js"></script>
 
     <div class="dashboard">
 
@@ -35,34 +29,95 @@
         <aside class="sidebar">
 
             <div class="logo">
-                <h2>MEMORA</h2>
+
+                <h2>
+                    Mem<span>ora</span>
+                </h2>
+
+                <p>
+                    Study smarter
+                </p>
+
             </div>
 
 
             <nav class="navigation">
 
                 <a href="index.html" class="nav-item">
-                    Dashboard
+
+                    <span class="nav-icon">
+                        🏠
+                    </span>
+
+                    <span>
+                        Dashboard
+                    </span>
+
                 </a>
+
 
                 <a href="calendar.html" class="nav-item active">
-                    Calendar
+
+                    <span class="nav-icon">
+                        📅
+                    </span>
+
+                    <span>
+                        Calendar
+                    </span>
+
                 </a>
+
 
                 <a href="task.html" class="nav-item">
-                    Tasks
+
+                    <span class="nav-icon">
+                        ✓
+                    </span>
+
+                    <span>
+                        Tasks
+                    </span>
+
                 </a>
 
+
                 <a href="progress.html" class="nav-item">
-                    Progress
+
+                    <span class="nav-icon">
+                        📊
+                    </span>
+
+                    <span>
+                        Progress
+                    </span>
+
                 </a>
 
             </nav>
 
-            <!-- Night Mode -->
-            <button id="darkModeBtn" class="dark-mode-btn">
-                🌙
-            </button>
+
+            <!-- THEME -->
+
+            <div class="theme-switch">
+
+                <span id="themeIcon">
+                    🌙
+                </span>
+
+                <span id="themeText">
+                    Dark Mode
+                </span>
+
+                <button id="themeToggle" class="theme-toggle" type="button" aria-label="Toggle dark mode"
+                    aria-pressed="false">
+
+                    <span class="toggle-circle"></span>
+
+                </button>
+
+            </div>
+
         </aside>
 
 
@@ -76,7 +131,9 @@
 
                 <div>
 
-                    <h1>Revision Calendar</h1>
+                    <h1>
+                        Revision Calendar
+                    </h1>
 
                     <p>
                         Track your study and revision progress.
@@ -88,7 +145,7 @@
 
 
 
-            <!-- ================= CALENDAR CARD ================= -->
+            <!-- CALENDAR -->
 
             <section class="calendar-page-card">
 
@@ -97,7 +154,9 @@
 
                     <div>
 
-                        <h2>September 2026</h2>
+                        <h2>
+                            September 2026
+                        </h2>
 
                         <p>
                             Keep track of what you studied each day.
@@ -108,11 +167,17 @@
 
                     <div class="calendar-controls">
 
-                        <button>‹</button>
+                        <button type="button">
+                            ‹
+                        </button>
 
-                        <span>September 2026</span>
+                        <span>
+                            September 2026
+                        </span>
 
-                        <button>›</button>
+                        <button type="button">
+                            ›
+                        </button>
 
                     </div>
 
@@ -120,18 +185,36 @@
 
 
 
-                <!-- DAYS -->
-
-                <div class="calendar large-calendar">
+                <div class="large-calendar">
 
 
-                    <div class="calendar-day-name">Mon</div>
-                    <div class="calendar-day-name">Tue</div>
-                    <div class="calendar-day-name">Wed</div>
-                    <div class="calendar-day-name">Thu</div>
-                    <div class="calendar-day-name">Fri</div>
-                    <div class="calendar-day-name">Sat</div>
-                    <div class="calendar-day-name">Sun</div>
+                    <div class="calendar-day-name">
+                        Mon
+                    </div>
+
+                    <div class="calendar-day-name">
+                        Tue
+                    </div>
+
+                    <div class="calendar-day-name">
+                        Wed
+                    </div>
+
+                    <div class="calendar-day-name">
+                        Thu
+                    </div>
+
+                    <div class="calendar-day-name">
+                        Fri
+                    </div>
+
+                    <div class="calendar-day-name">
+                        Sat
+                    </div>
+
+                    <div class="calendar-day-name">
+                        Sun
+                    </div>
 
 
 
@@ -141,17 +224,17 @@
                         <span>31</span>
                     </div>
 
-                    <div class="day">
+                    <div class="day completed">
                         <span>1</span>
                         <small>✓ Arrays</small>
                     </div>
 
-                    <div class="day">
+                    <div class="day completed">
                         <span>2</span>
                         <small>✓ Strings</small>
                     </div>
 
-                    <div class="day">
+                    <div class="day completed">
                         <span>3</span>
                         <small>✓ Sorting</small>
                     </div>
@@ -174,12 +257,11 @@
 
                     <div class="day">
                         <span>7</span>
-                        <small>✓ Searching</small>
                     </div>
 
-                    <div class="day">
+                    <div class="day completed">
                         <span>8</span>
-                        <small>✓ Stack</small>
+                        <small>✓ Linked List</small>
                     </div>
 
                     <div class="day">
@@ -188,7 +270,6 @@
 
                     <div class="day">
                         <span>10</span>
-                        <small>✓ Queue</small>
                     </div>
 
                     <div class="day">
@@ -209,16 +290,16 @@
 
                     <div class="day">
                         <span>14</span>
-                        <small>✓ Trees</small>
                     </div>
 
-                    <div class="day">
+                    <div class="day completed">
                         <span>15</span>
+                        <small>✓ Stack</small>
                     </div>
 
-                    <div class="day">
+                    <div class="day completed">
                         <span>16</span>
-                        <small>✓ Graphs</small>
+                        <small>✓ Queue</small>
                     </div>
 
                     <div class="day">
@@ -241,23 +322,34 @@
 
                     <!-- WEEK 4 -->
 
-                    <div class="day">
+                    <div class="day completed">
+
                         <span>21</span>
 
-                        <small>✓ Arrays</small>
+                        <small>
+                            ✓ Arrays
+                        </small>
 
-                        <small>✓ Binary Search</small>
+                        <small>
+                            ✓ Binary Search
+                        </small>
 
                     </div>
 
 
                     <div class="day today">
 
-                        <span>22</span>
+                        <span>
+                            22
+                        </span>
 
-                        <small>✓ Binary Search</small>
+                        <small>
+                            ✓ Binary Search
+                        </small>
 
-                        <small>✓ Linked List</small>
+                        <small>
+                            ✓ Linked List
+                        </small>
 
                     </div>
 
@@ -296,12 +388,15 @@
 
                     <div class="day exam-day">
 
-                        <span>30</span>
+                        <span>
+                            30
+                        </span>
 
-                        <small>EXAM</small>
+                        <small>
+                            EXAM
+                        </small>
 
                     </div>
-
 
                     <div class="day next-month">
                         <span>1</span>
@@ -326,7 +421,7 @@
 
 
 
-            <!-- ================= LEGEND ================= -->
+            <!-- LEGEND -->
 
             <section class="calendar-info">
 
@@ -334,7 +429,9 @@
 
                     <span class="legend completed-dot"></span>
 
-                    <p>Completed topic</p>
+                    <p>
+                        Completed topic
+                    </p>
 
                 </div>
 
@@ -343,7 +440,9 @@
 
                     <span class="legend today-dot"></span>
 
-                    <p>Today</p>
+                    <p>
+                        Today
+                    </p>
 
                 </div>
 
@@ -352,7 +451,9 @@
 
                     <span class="legend exam-dot"></span>
 
-                    <p>Exam</p>
+                    <p>
+                        Exam
+                    </p>
 
                 </div>
 
@@ -360,21 +461,29 @@
 
 
 
-            <!-- ================= TODAY ================= -->
+            <!-- TODAY -->
 
             <section class="calendar-summary">
 
-                <h2>Today's Revision</h2>
+                <h2>
+                    Today's Revision
+                </h2>
+
 
                 <div class="revision-list">
+
 
                     <div class="revision-item">
 
                         <div>
 
-                            <h3>Binary Search</h3>
+                            <h3>
+                                Binary Search
+                            </h3>
 
-                            <p>Data Structures</p>
+                            <p>
+                                Data Structures
+                            </p>
 
                         </div>
 
@@ -389,9 +498,13 @@
 
                         <div>
 
-                            <h3>Linked List</h3>
+                            <h3>
+                                Linked List
+                            </h3>
 
-                            <p>Data Structures</p>
+                            <p>
+                                Data Structures
+                            </p>
 
                         </div>
 
@@ -401,6 +514,7 @@
 
                     </div>
 
+
                 </div>
 
             </section>
@@ -409,6 +523,9 @@
         </main>
 
     </div>
+
+
+    <script src="script.js"></script>
 
 </body>
 

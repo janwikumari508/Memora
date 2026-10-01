@@ -4,22 +4,17 @@
 <head>
 
     <meta charset="UTF-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Tasks - MEMORA</title>
+    <title>Tasks - Memora</title>
 
     <link rel="stylesheet" href="style.css">
+
     <script>
-
         if (localStorage.getItem("theme") === "dark") {
-
             document.documentElement.classList.add("dark-mode");
-
         }
-
     </script>
-    
 
 </head>
 
@@ -29,61 +24,116 @@
     <div class="dashboard">
 
 
-        <!-- =========================
-             SIDEBAR
-        ========================== -->
+        <!-- ================= SIDEBAR ================= -->
 
         <aside class="sidebar">
 
             <div class="logo">
-                <span>
-                    <h2>MEMORA</h2>
-                </span>
+
+                <h2>
+                    Mem<span>ora</span>
+                </h2>
+
+                <p>
+                    Study smarter
+                </p>
+
             </div>
 
 
             <nav class="navigation">
 
                 <a href="index.html" class="nav-item">
-                    Dashboard
+
+                    <span class="nav-icon">
+                        🏠
+                    </span>
+
+                    <span>
+                        Dashboard
+                    </span>
+
                 </a>
+
 
                 <a href="calendar.html" class="nav-item">
-                    Calendar
+
+                    <span class="nav-icon">
+                        📅
+                    </span>
+
+                    <span>
+                        Calendar
+                    </span>
+
                 </a>
+
 
                 <a href="task.html" class="nav-item active">
-                    Tasks
+
+                    <span class="nav-icon">
+                        ✓
+                    </span>
+
+                    <span>
+                        Tasks
+                    </span>
+
                 </a>
 
+
                 <a href="progress.html" class="nav-item">
-                    Progress
+
+                    <span class="nav-icon">
+                        📊
+                    </span>
+
+                    <span>
+                        Progress
+                    </span>
+
                 </a>
 
             </nav>
 
-            <!-- Night Mode -->
-            <button id="darkModeBtn" class="dark-mode-btn">
-                🌙
-            </button>
+
+            <!-- THEME -->
+
+            <div class="theme-switch">
+
+                <span id="themeIcon">
+                    🌙
+                </span>
+
+                <span id="themeText">
+                    Dark Mode
+                </span>
+
+                <button id="themeToggle" class="theme-toggle" type="button" aria-label="Toggle dark mode"
+                    aria-pressed="false">
+
+                    <span class="toggle-circle"></span>
+
+                </button>
+
+            </div>
+
         </aside>
 
 
 
-        <!-- =========================
-             MAIN CONTENT
-        ========================== -->
+        <!-- ================= MAIN ================= -->
 
         <main class="main-content">
 
-
-            <!-- PAGE HEADER -->
 
             <header class="header">
 
                 <div class="welcome">
 
-                    <h1>Tasks</h1>
+                    <h1>
+                        Tasks
+                    </h1>
 
                     <p>
                         Manage your study tasks and stay on track.
@@ -93,51 +143,61 @@
 
 
                 <button class="add-task" id="addTaskBtn" type="button">
+
                     + Add Task
+
                 </button>
 
             </header>
 
 
 
-            <!-- =========================
-                 FILTERS
-            ========================== -->
+            <!-- FILTERS -->
 
             <section class="task-filters">
 
-                <button class="filter active" type="button">
+                <button class="filter active" type="button" data-filter="all">
+
                     All
+
                 </button>
 
-                <button class="filter" type="button">
+
+                <button class="filter" type="button" data-filter="pending">
+
                     Pending
+
                 </button>
 
-                <button class="filter" type="button">
+
+                <button class="filter" type="button" data-filter="completed">
+
                     Completed
+
                 </button>
 
-                <button class="filter" type="button">
+
+                <button class="filter" type="button" data-filter="high">
+
                     High Priority
+
                 </button>
 
             </section>
 
 
 
-            <!-- =========================
-                 TODAY'S TASKS
-            ========================== -->
+            <!-- TODAY'S TASKS -->
 
             <section class="today-section">
-
 
                 <div class="section-header">
 
                     <div>
 
-                        <h2>Today's Tasks</h2>
+                        <h2>
+                            Today's Tasks
+                        </h2>
 
                         <p>
                             Tasks you need to complete today.
@@ -148,16 +208,12 @@
                 </div>
 
 
-
                 <div class="task-list" id="todayTaskList">
 
 
-                    <!-- COMPLETED TASK -->
-
-                    <div class="task completed">
+                    <div class="task completed" data-status="completed" data-priority="completed">
 
                         <input type="checkbox" checked>
-
 
                         <div class="task-content">
 
@@ -171,7 +227,6 @@
 
                         </div>
 
-
                         <span class="task-status">
                             Completed
                         </span>
@@ -180,12 +235,9 @@
 
 
 
-                    <!-- HIGH PRIORITY TASK -->
-
-                    <div class="task">
+                    <div class="task" data-status="pending" data-priority="high">
 
                         <input type="checkbox">
-
 
                         <div class="task-content">
 
@@ -199,7 +251,6 @@
 
                         </div>
 
-
                         <span class="task-priority">
                             High
                         </span>
@@ -208,12 +259,9 @@
 
 
 
-                    <!-- MEDIUM PRIORITY TASK -->
-
-                    <div class="task">
+                    <div class="task" data-status="pending" data-priority="medium">
 
                         <input type="checkbox">
-
 
                         <div class="task-content">
 
@@ -226,7 +274,6 @@
                             </p>
 
                         </div>
-
 
                         <span class="task-priority">
                             Medium
@@ -241,21 +288,20 @@
 
 
 
-            <!-- =========================
-                 UPCOMING TASKS
-            ========================== -->
+            <!-- UPCOMING TASKS -->
 
             <section class="today-section">
-
 
                 <div class="section-header">
 
                     <div>
 
-                        <h2>Upcoming Tasks</h2>
+                        <h2>
+                            Upcoming Tasks
+                        </h2>
 
                         <p>
-                            Tasks scheduled for the upcoming days.
+                            Tasks scheduled for upcoming days.
                         </p>
 
                     </div>
@@ -263,16 +309,12 @@
                 </div>
 
 
-
                 <div class="task-list">
 
-
-                    <!-- BINARY TREES -->
 
                     <div class="task">
 
                         <input type="checkbox">
-
 
                         <div class="task-content">
 
@@ -286,7 +328,6 @@
 
                         </div>
 
-
                         <span class="task-priority">
                             High
                         </span>
@@ -295,12 +336,9 @@
 
 
 
-                    <!-- GRAPH TRAVERSAL -->
-
                     <div class="task">
 
                         <input type="checkbox">
-
 
                         <div class="task-content">
 
@@ -309,11 +347,10 @@
                             </h3>
 
                             <p>
-                                Algorithms · September 24
+                                Algorithms · Upcoming
                             </p>
 
                         </div>
-
 
                         <span class="task-priority">
                             Medium
@@ -333,17 +370,13 @@
 
 
 
-    <!-- =================================================
-         ADD TASK POPUP
-    ================================================== -->
+    <!-- ================= ADD TASK MODAL ================= -->
 
     <div class="modal-overlay" id="taskModal">
 
 
         <div class="task-modal">
 
-
-            <!-- MODAL HEADER -->
 
             <div class="modal-header">
 
@@ -353,19 +386,17 @@
 
 
                 <button class="close-modal" id="closeTaskModal" type="button">
+
                     ×
+
                 </button>
 
             </div>
 
 
 
-            <!-- TASK FORM -->
-
             <form id="newTaskForm">
 
-
-                <!-- TASK NAME -->
 
                 <label for="taskName">
                     Task Name
@@ -375,8 +406,6 @@
 
 
 
-                <!-- SUBJECT -->
-
                 <label for="taskSubject">
                     Subject
                 </label>
@@ -385,8 +414,6 @@
 
 
 
-                <!-- DATE -->
-
                 <label for="taskDate">
                     Date
                 </label>
@@ -394,8 +421,6 @@
                 <input type="date" id="taskDate" required>
 
 
-
-                <!-- PRIORITY -->
 
                 <label for="taskPriority">
                     Priority
@@ -419,15 +444,14 @@
 
 
 
-                <!-- ADD BUTTON -->
-
                 <button type="submit" class="save-task">
+
                     Add Task
+
                 </button>
 
 
             </form>
-
 
         </div>
 
@@ -435,12 +459,7 @@
 
 
 
-    <!-- =========================
-         JAVASCRIPT
-    ========================== -->
-
     <script src="script.js"></script>
-
 
 </body>
 

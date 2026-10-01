@@ -4,69 +4,125 @@
 <head>
 
     <meta charset="UTF-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Progress - Memora</title>
 
     <link rel="stylesheet" href="style.css">
+
     <script>
-
         if (localStorage.getItem("theme") === "dark") {
-
             document.documentElement.classList.add("dark-mode");
-
         }
-
     </script>
-
 
 </head>
 
 
 <body>
-   
+
     <div class="dashboard">
 
 
-        <!-- SIDEBAR -->
+        <!-- ================= SIDEBAR ================= -->
 
         <aside class="sidebar">
 
             <div class="logo">
-                <h2>MEMORA</h2>
+
+                <h2>
+                    Mem<span>ora</span>
+                </h2>
+
+                <p>
+                    Study smarter
+                </p>
+
             </div>
 
 
             <nav class="navigation">
 
                 <a href="index.html" class="nav-item">
-                    Dashboard
+
+                    <span class="nav-icon">
+                        🏠
+                    </span>
+
+                    <span>
+                        Dashboard
+                    </span>
+
                 </a>
+
 
                 <a href="calendar.html" class="nav-item">
-                    Calendar
+
+                    <span class="nav-icon">
+                        📅
+                    </span>
+
+                    <span>
+                        Calendar
+                    </span>
+
                 </a>
+
 
                 <a href="task.html" class="nav-item">
-                    Tasks
+
+                    <span class="nav-icon">
+                        ✓
+                    </span>
+
+                    <span>
+                        Tasks
+                    </span>
+
                 </a>
 
+
                 <a href="progress.html" class="nav-item active">
-                    Progress
+
+                    <span class="nav-icon">
+                        📊
+                    </span>
+
+                    <span>
+                        Progress
+                    </span>
+
                 </a>
 
             </nav>
 
-            <!-- Night Mode -->
-            <button id="darkModeBtn" class="dark-mode-btn">
-                🌙
-            </button>
+
+            <!-- THEME -->
+
+            <div class="theme-switch">
+
+                <span id="themeIcon">
+                    🌙
+                </span>
+
+                <span id="themeText">
+                    Dark Mode
+                </span>
+
+                <button id="themeToggle" class="theme-toggle" type="button" aria-label="Toggle dark mode"
+                    aria-pressed="false">
+
+                    <span class="toggle-circle"></span>
+
+                </button>
+
+            </div>
+
         </aside>
 
 
 
-        <!-- MAIN -->
+        <!-- ================= MAIN ================= -->
 
         <main class="main-content">
 
@@ -75,7 +131,9 @@
 
                 <div>
 
-                    <h1>Your Progress</h1>
+                    <h1>
+                        Your Progress
+                    </h1>
 
                     <p>
                         See how far you've come.
@@ -87,7 +145,7 @@
 
 
 
-            <!-- ================= OVERALL ================= -->
+            <!-- OVERALL PROGRESS -->
 
             <section class="overall-progress">
 
@@ -96,28 +154,35 @@
 
                     <div>
 
-                        <strong>68%</strong>
+                        <strong>
+                            68%
+                        </strong>
 
-                        <span>Completed</span>
+                        <span>
+                            Completed
+                        </span>
 
                     </div>
 
                 </div>
 
 
+
                 <div class="progress-info">
 
-                    <h2>Overall Progress</h2>
+                    <h2>
+                        Overall Progress
+                    </h2>
 
                     <p>
-                        You have completed 17 out of 25
-                        planned topics.
+                        You have completed 17 out of 25 planned topics.
                     </p>
 
 
                     <div class="large-progress-bar">
 
-                        <div class="large-progress">
+                        <div class="large-progress" style="width:68%;">
+
                         </div>
 
                     </div>
@@ -125,31 +190,45 @@
 
                     <div class="progress-numbers">
 
+
                         <div>
 
-                            <strong>17</strong>
+                            <strong>
+                                17
+                            </strong>
 
-                            <span>Completed</span>
+                            <span>
+                                Completed
+                            </span>
 
                         </div>
 
 
                         <div>
 
-                            <strong>6</strong>
+                            <strong>
+                                6
+                            </strong>
 
-                            <span>Remaining</span>
+                            <span>
+                                Remaining
+                            </span>
 
                         </div>
 
 
                         <div>
 
-                            <strong>2</strong>
+                            <strong>
+                                2
+                            </strong>
 
-                            <span>At Risk</span>
+                            <span>
+                                At Risk
+                            </span>
 
                         </div>
+
 
                     </div>
 
@@ -159,28 +238,33 @@
 
 
 
-            <!-- ================= SUBJECT PROGRESS ================= -->
+            <!-- SUBJECT PROGRESS -->
 
             <section class="subject-section">
 
-                <h2>Subject Progress</h2>
+                <h2>
+                    Subject Progress
+                </h2>
 
 
                 <div class="subject">
 
-
                     <div class="subject-header">
 
-                        <span>Data Structures</span>
+                        <span>
+                            Data Structures
+                        </span>
 
-                        <strong>75%</strong>
+                        <strong>
+                            75%
+                        </strong>
 
                     </div>
-
 
                     <div class="subject-bar">
 
                         <div class="subject-fill" style="width:75%;">
+
                         </div>
 
                     </div>
@@ -193,16 +277,20 @@
 
                     <div class="subject-header">
 
-                        <span>Algorithms</span>
+                        <span>
+                            Algorithms
+                        </span>
 
-                        <strong>60%</strong>
+                        <strong>
+                            60%
+                        </strong>
 
                     </div>
-
 
                     <div class="subject-bar">
 
                         <div class="subject-fill" style="width:60%;">
+
                         </div>
 
                     </div>
@@ -215,16 +303,46 @@
 
                     <div class="subject-header">
 
-                        <span>Operating Systems</span>
+                        <span>
+                            Operating Systems
+                        </span>
 
-                        <strong>45%</strong>
+                        <strong>
+                            45%
+                        </strong>
 
                     </div>
-
 
                     <div class="subject-bar">
 
                         <div class="subject-fill" style="width:45%;">
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="subject">
+
+                    <div class="subject-header">
+
+                        <span>
+                            JavaScript
+                        </span>
+
+                        <strong>
+                            80%
+                        </strong>
+
+                    </div>
+
+                    <div class="subject-bar">
+
+                        <div class="subject-fill" style="width:80%;">
+
                         </div>
 
                     </div>
@@ -235,7 +353,7 @@
 
 
 
-            <!-- ================= AT RISK ================= -->
+            <!-- AT RISK -->
 
             <section class="risk-section">
 
@@ -243,7 +361,9 @@
 
                     <div>
 
-                        <h2>Topics At Risk</h2>
+                        <h2>
+                            Topics At Risk
+                        </h2>
 
                         <p>
                             These topics may need revision.
@@ -254,32 +374,46 @@
                 </div>
 
 
+
                 <div class="risk-item">
 
                     <div>
 
-                        <h3>Recursion</h3>
+                        <h3>
+                            Recursion
+                        </h3>
 
-                        <p>Algorithms</p>
+                        <p>
+                            Algorithms
+                        </p>
 
                     </div>
 
-                    <span>Needs Revision</span>
+                    <span>
+                        Needs Revision
+                    </span>
 
                 </div>
 
 
+
                 <div class="risk-item">
 
                     <div>
 
-                        <h3>Linked List</h3>
+                        <h3>
+                            Linked List
+                        </h3>
 
-                        <p>Data Structures</p>
+                        <p>
+                            Data Structures
+                        </p>
 
                     </div>
 
-                    <span>Needs Revision</span>
+                    <span>
+                        Needs Revision
+                    </span>
 
                 </div>
 
@@ -287,37 +421,52 @@
 
 
 
-            <!-- ================= RECENT ACTIVITY ================= -->
+            <!-- RECENT ACTIVITY -->
 
             <section class="activity-section">
 
-                <h2>Recent Activity</h2>
+                <h2>
+                    Recent Activity
+                </h2>
 
 
                 <div class="activity">
 
-                    <span>✓</span>
+                    <span>
+                        ✓
+                    </span>
 
                     <div>
 
-                        <h3>Binary Search completed</h3>
+                        <h3>
+                            Binary Search completed
+                        </h3>
 
-                        <p>Today</p>
+                        <p>
+                            Today
+                        </p>
 
                     </div>
 
                 </div>
 
 
+
                 <div class="activity">
 
-                    <span>✓</span>
+                    <span>
+                        ✓
+                    </span>
 
                     <div>
 
-                        <h3>Arrays revised</h3>
+                        <h3>
+                            Arrays revised
+                        </h3>
 
-                        <p>Yesterday</p>
+                        <p>
+                            Yesterday
+                        </p>
 
                     </div>
 
@@ -330,6 +479,8 @@
         </main>
 
     </div>
+
+
     <script src="script.js"></script>
 
 </body>

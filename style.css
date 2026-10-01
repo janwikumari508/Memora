@@ -1,6 +1,12 @@
-/* =========================================
-   MEMORA - MAIN STYLES
-========================================= */
+/* =====================================================
+   MEMORA
+   MAIN STYLESHEET
+===================================================== */
+
+
+/* =====================================================
+   RESET
+===================================================== */
 
 * {
     margin: 0;
@@ -8,40 +14,22 @@
     box-sizing: border-box;
 }
 
-:root {
 
-    --primary: #8B5CF6;
-    --primary-dark: #7C3AED;
-    --accent: #EC4899;
-
-    --light-purple: #F3E8FF;
-    --background: #FAF7FF;
-
-    --card: #FFFFFF;
-
-    --text: #29233D;
-    --muted: #77718A;
-
-    --border: #E8E1F0;
-
-    --sidebar-width: 240px;
+html {
+    scroll-behavior: smooth;
 }
 
 
-/* =========================================
-   BODY
-========================================= */
-
 body {
-
     font-family:
         -apple-system,
         BlinkMacSystemFont,
         "Segoe UI",
+        Roboto,
+        Arial,
         sans-serif;
 
     background: var(--background);
-
     color: var(--text);
 
     transition:
@@ -50,9 +38,66 @@ body {
 }
 
 
-/* =========================================
-   DASHBOARD
-========================================= */
+/* =====================================================
+   LIGHT THEME
+===================================================== */
+
+:root {
+
+    --primary: #8B5CF6;
+    --primary-dark: #7C3AED;
+
+    --accent: #EC4899;
+
+    --light-purple: #F3E8FF;
+
+    --background: #FAF7FF;
+
+    --card: #FFFFFF;
+
+    --text: #29233D;
+
+    --muted: #77718A;
+
+    --border: #E8E1F0;
+
+    --input: #FFFFFF;
+
+    --sidebar-width: 240px;
+}
+
+
+/* =====================================================
+   DARK THEME
+===================================================== */
+
+html.dark-mode {
+
+    --primary: #A78BFA;
+
+    --primary-dark: #8B5CF6;
+
+    --accent: #F472B6;
+
+    --light-purple: #2E2347;
+
+    --background: #12101A;
+
+    --card: #1E1B26;
+
+    --text: #F3F0F7;
+
+    --muted: #AAA3B8;
+
+    --border: #342D40;
+
+    --input: #18151F;
+}
+
+
+/* =====================================================
+   DASHBOARD LAYOUT
+===================================================== */
 
 .dashboard {
 
@@ -62,15 +107,20 @@ body {
 }
 
 
-/* =========================================
+/* =====================================================
    SIDEBAR
-========================================= */
+===================================================== */
 
 .sidebar {
 
+    position: fixed;
+
+    left: 0;
+    top: 0;
+
     width: var(--sidebar-width);
 
-    min-height: 100vh;
+    height: 100vh;
 
     background: var(--card);
 
@@ -82,10 +132,7 @@ body {
 
     flex-direction: column;
 
-    position: fixed;
-
-    left: 0;
-    top: 0;
+    z-index: 100;
 
     transition:
         background-color 0.3s ease,
@@ -93,14 +140,15 @@ body {
 }
 
 
-/* =========================================
+/* =====================================================
    LOGO
-========================================= */
+===================================================== */
 
 .logo {
 
     padding: 5px 12px 35px;
 }
+
 
 .logo h2 {
 
@@ -111,10 +159,12 @@ body {
     color: var(--text);
 }
 
+
 .logo h2 span {
 
     color: var(--primary);
 }
+
 
 .logo p {
 
@@ -126,9 +176,9 @@ body {
 }
 
 
-/* =========================================
+/* =====================================================
    NAVIGATION
-========================================= */
+===================================================== */
 
 .navigation {
 
@@ -158,7 +208,10 @@ body {
 
     font-size: 14px;
 
-    transition: all 0.25s ease;
+    transition:
+        background-color 0.2s ease,
+        color 0.2s ease,
+        transform 0.2s ease;
 }
 
 
@@ -177,6 +230,8 @@ body {
     background: var(--light-purple);
 
     color: var(--primary);
+
+    transform: translateX(2px);
 }
 
 
@@ -190,9 +245,9 @@ body {
 }
 
 
-/* =========================================
+/* =====================================================
    THEME SWITCH
-========================================= */
+===================================================== */
 
 .theme-switch {
 
@@ -207,10 +262,6 @@ body {
     padding: 12px 10px;
 
     border-radius: 10px;
-
-    color: var(--muted);
-
-    font-size: 13px;
 }
 
 
@@ -234,8 +285,6 @@ body {
 }
 
 
-/* Toggle button */
-
 .theme-toggle {
 
     position: relative;
@@ -244,6 +293,8 @@ body {
 
     height: 23px;
 
+    padding: 0;
+
     border: none;
 
     border-radius: 20px;
@@ -251,8 +302,6 @@ body {
     background: #E9E2F2;
 
     cursor: pointer;
-
-    padding: 0;
 
     transition:
         background-color 0.3s ease;
@@ -264,11 +313,9 @@ body {
     position: absolute;
 
     top: 3px;
-
     left: 3px;
 
     width: 17px;
-
     height: 17px;
 
     border-radius: 50%;
@@ -289,9 +336,27 @@ body {
 }
 
 
-/* =========================================
+html.dark-mode .theme-toggle {
+
+    background: var(--primary);
+}
+
+
+html.dark-mode .toggle-circle {
+
+    left: 22px;
+}
+
+
+html.dark-mode .theme-toggle:hover {
+
+    background: var(--primary-dark);
+}
+
+
+/* =====================================================
    MAIN CONTENT
-========================================= */
+===================================================== */
 
 .main-content {
 
@@ -299,29 +364,46 @@ body {
 
     width: calc(100% - var(--sidebar-width));
 
+    min-height: 100vh;
+
     padding: 35px 40px;
 }
 
 
-/* =========================================
-   TOP BAR
-========================================= */
+/* =====================================================
+   HEADERS
+===================================================== */
 
-.topbar {
+.topbar,
+.page-header,
+.header {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
 
     margin-bottom: 25px;
 }
 
 
-.topbar h1 {
+.topbar h1,
+.page-header h1,
+.header h1 {
 
     font-size: 28px;
+
+    color: var(--text);
 
     margin-bottom: 5px;
 }
 
 
-.topbar p {
+.topbar p,
+.page-header p,
+.header p,
+.welcome p {
 
     color: var(--muted);
 
@@ -329,9 +411,9 @@ body {
 }
 
 
-/* =========================================
+/* =====================================================
    EXAM CARD
-========================================= */
+===================================================== */
 
 .exam-card {
 
@@ -348,9 +430,9 @@ body {
 
     display: flex;
 
-    justify-content: space-between;
-
     align-items: center;
+
+    justify-content: space-between;
 
     margin-bottom: 25px;
 }
@@ -418,9 +500,9 @@ body {
 }
 
 
-/* =========================================
+/* =====================================================
    STATS
-========================================= */
+===================================================== */
 
 .stats {
 
@@ -460,7 +542,6 @@ body {
 .stat-icon {
 
     width: 42px;
-
     height: 42px;
 
     border-radius: 11px;
@@ -481,6 +562,8 @@ body {
 
     font-size: 20px;
 
+    color: var(--text);
+
     margin-bottom: 2px;
 }
 
@@ -493,11 +576,18 @@ body {
 }
 
 
-/* =========================================
+/* =====================================================
    CONTENT CARD
-========================================= */
+===================================================== */
 
-.content-card {
+.content-card,
+.today-section,
+.calendar-page-card,
+.calendar-summary,
+.subject-section,
+.risk-section,
+.activity-section,
+.overall-progress {
 
     background: var(--card);
 
@@ -505,13 +595,17 @@ body {
 
     border-radius: 15px;
 
-    padding: 22px;
-
-    margin-bottom: 20px;
-
     transition:
         background-color 0.3s ease,
         border-color 0.3s ease;
+}
+
+
+.content-card {
+
+    padding: 22px;
+
+    margin-bottom: 20px;
 }
 
 
@@ -530,6 +624,8 @@ body {
 .section-header h2 {
 
     font-size: 18px;
+
+    color: var(--text);
 
     margin-bottom: 4px;
 }
@@ -561,9 +657,9 @@ body {
 }
 
 
-/* =========================================
-   TASK LIST
-========================================= */
+/* =====================================================
+   DASHBOARD TASKS
+===================================================== */
 
 .task-list {
 
@@ -588,16 +684,15 @@ body {
     border-radius: 10px;
 
     background: var(--background);
-
-    transition: background-color 0.3s ease;
 }
 
 
 .task-check {
 
     width: 25px;
-
     height: 25px;
+
+    flex-shrink: 0;
 
     border-radius: 50%;
 
@@ -625,6 +720,8 @@ body {
 
     font-size: 13px;
 
+    color: var(--text);
+
     margin-bottom: 3px;
 }
 
@@ -645,9 +742,9 @@ body {
 }
 
 
-/* =========================================
+/* =====================================================
    BOTTOM GRID
-========================================= */
+===================================================== */
 
 .bottom-grid {
 
@@ -660,9 +757,9 @@ body {
 }
 
 
-/* =========================================
-   CALENDAR
-========================================= */
+/* =====================================================
+   SMALL CALENDAR
+===================================================== */
 
 .calendar-preview {
 
@@ -747,9 +844,9 @@ body {
 }
 
 
-/* =========================================
-   PROGRESS
-========================================= */
+/* =====================================================
+   PROGRESS CIRCLE
+===================================================== */
 
 .progress-container {
 
@@ -782,6 +879,8 @@ body {
     justify-content: center;
 
     position: relative;
+
+    flex-shrink: 0;
 }
 
 
@@ -805,9 +904,37 @@ body {
 
     position: relative;
 
-    font-size: 20px;
-
     color: var(--text);
+
+    font-size: 20px;
+}
+
+
+.progress-circle>div {
+
+    position: relative;
+
+    z-index: 2;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+}
+
+
+.progress-circle>div strong {
+
+    font-size: 28px;
+}
+
+
+.progress-circle>div span {
+
+    color: var(--muted);
+
+    font-size: 10px;
 }
 
 
@@ -821,114 +948,1139 @@ body {
 }
 
 
-/* =========================================
-   DARK MODE
-========================================= */
+.legend-dot {
 
-html.dark-mode {
+    display: inline-block;
 
-    --background: #12101A;
+    width: 8px;
+    height: 8px;
 
-    --card: #1E1B26;
+    border-radius: 50%;
 
-    --text: #F3F0F7;
-
-    --muted: #AAA3B8;
-
-    --border: #342D40;
-
-    --light-purple: #2E2347;
+    margin-right: 5px;
 }
 
 
-/* Dark sidebar */
+.remaining-dot {
 
-html.dark-mode .sidebar {
-
-    background: #18151F;
-
-    border-color: var(--border);
+    background: var(--light-purple);
 }
 
 
-/* Dark navigation */
+/* =====================================================
+   CALENDAR PAGE
+===================================================== */
 
-html.dark-mode .nav-item:hover,
-html.dark-mode .nav-item.active {
+.calendar-page-card {
 
-    background: #2E2347;
+    padding: 25px;
 
-    color: #C4B5FD;
+    margin-bottom: 20px;
 }
 
 
-/* Dark toggle */
+.calendar-top {
 
-html.dark-mode .theme-toggle {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    margin-bottom: 25px;
+}
+
+
+.calendar-top h2 {
+
+    font-size: 20px;
+
+    color: var(--text);
+
+    margin-bottom: 5px;
+}
+
+
+.calendar-top p {
+
+    font-size: 13px;
+
+    color: var(--muted);
+}
+
+
+.calendar-controls {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+}
+
+
+.calendar-controls button {
+
+    width: 35px;
+    height: 35px;
+
+    border: 1px solid var(--border);
+
+    border-radius: 8px;
+
+    background: var(--background);
+
+    color: var(--text);
+
+    cursor: pointer;
+
+    font-size: 20px;
+}
+
+
+.calendar-controls button:hover {
+
+    background: var(--light-purple);
+
+    color: var(--primary);
+}
+
+
+.calendar-controls span {
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+    color: var(--text);
+}
+
+
+.large-calendar {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(7, 1fr);
+
+    gap: 8px;
+}
+
+
+.calendar-day-name {
+
+    text-align: center;
+
+    padding: 10px 5px;
+
+    font-size: 11px;
+
+    font-weight: 600;
+
+    color: var(--muted);
+}
+
+
+.day {
+
+    min-height: 90px;
+
+    padding: 10px;
+
+    border: 1px solid var(--border);
+
+    border-radius: 10px;
+
+    background: var(--background);
+
+    color: var(--text);
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 6px;
+
+    transition: 0.2s ease;
+}
+
+
+.day:hover {
+
+    border-color: var(--primary);
+
+    background: var(--light-purple);
+}
+
+
+.day>span {
+
+    font-size: 14px;
+
+    font-weight: 600;
+}
+
+
+.day small {
+
+    font-size: 10px;
+
+    color: var(--primary);
+}
+
+
+.day.previous-month,
+.day.next-month {
+
+    opacity: 0.35;
+}
+
+
+.day.completed {
+
+    background: var(--light-purple);
+
+    border-color: transparent;
+}
+
+
+.day.today {
+
+    border: 2px solid var(--primary);
+
+    background: var(--light-purple);
+}
+
+
+.day.today>span {
+
+    color: var(--primary);
+}
+
+
+.day.exam-day {
+
+    background: var(--accent);
+
+    color: white;
+
+    border-color: var(--accent);
+}
+
+
+.day.exam-day small {
+
+    color: white;
+
+    font-weight: 700;
+}
+
+
+/* =====================================================
+   CALENDAR LEGEND
+===================================================== */
+
+.calendar-info {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 25px;
+
+    padding: 15px 20px;
+
+    margin-bottom: 20px;
+}
+
+
+.legend-item {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+}
+
+
+.legend-item p {
+
+    color: var(--muted);
+
+    font-size: 12px;
+}
+
+
+.legend {
+
+    width: 10px;
+    height: 10px;
+
+    border-radius: 50%;
+}
+
+
+.completed-dot {
 
     background: var(--primary);
 }
 
 
-html.dark-mode .toggle-circle {
+.today-dot {
 
-    left: 22px;
+    background: var(--accent);
 }
 
 
-html.dark-mode .theme-toggle:hover {
+.exam-dot {
 
     background: var(--primary-dark);
 }
 
 
-/* Dark task */
+/* =====================================================
+   REVISION SUMMARY
+===================================================== */
 
-html.dark-mode .task-item {
+.calendar-summary {
 
-    background: #18151F;
+    padding: 22px;
 }
 
 
-/* Dark calendar */
+.calendar-summary h2 {
 
-html.dark-mode .calendar-day {
+    color: var(--text);
 
-    background: #18151F;
+    font-size: 18px;
+
+    margin-bottom: 18px;
 }
 
 
-html.dark-mode .calendar-day.completed {
+.revision-list {
 
-    background: #2E2347;
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 10px;
 }
 
 
-html.dark-mode .calendar-day.today {
+.revision-item {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    padding: 15px;
+
+    border-radius: 10px;
+
+    background: var(--background);
+}
+
+
+.revision-item h3 {
+
+    color: var(--text);
+
+    font-size: 14px;
+
+    margin-bottom: 4px;
+}
+
+
+.revision-item p {
+
+    color: var(--muted);
+
+    font-size: 11px;
+}
+
+
+.completed-label,
+.pending-label {
+
+    padding: 6px 10px;
+
+    border-radius: 20px;
+
+    font-size: 10px;
+
+    font-weight: 600;
+}
+
+
+.completed-label {
+
+    background: var(--light-purple);
+
+    color: var(--primary);
+}
+
+
+.pending-label {
+
+    background: rgba(236, 72, 153, 0.1);
+
+    color: var(--accent);
+}
+
+
+/* =====================================================
+   TASK PAGE
+===================================================== */
+
+.header {
+
+    min-height: 50px;
+}
+
+
+.add-task {
+
+    border: none;
+
+    border-radius: 9px;
+
+    padding: 11px 17px;
 
     background: var(--primary);
+
+    color: white;
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
 }
 
 
-/* =========================================
-   MOBILE
-========================================= */
+.add-task:hover {
+
+    background: var(--primary-dark);
+
+    transform: translateY(-1px);
+}
+
+
+.task-filters {
+
+    display: flex;
+
+    gap: 10px;
+
+    margin-bottom: 22px;
+}
+
+
+.filter {
+
+    border: 1px solid var(--border);
+
+    background: var(--card);
+
+    color: var(--muted);
+
+    padding: 8px 14px;
+
+    border-radius: 20px;
+
+    font-size: 12px;
+
+    cursor: pointer;
+}
+
+
+.filter:hover {
+
+    border-color: var(--primary);
+
+    color: var(--primary);
+}
+
+
+.filter.active {
+
+    background: var(--primary);
+
+    border-color: var(--primary);
+
+    color: white;
+}
+
+
+.today-section {
+
+    padding: 22px;
+
+    margin-bottom: 20px;
+}
+
+
+.task {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 14px;
+
+    padding: 15px;
+
+    border-radius: 10px;
+
+    background: var(--background);
+
+    border: 1px solid transparent;
+}
+
+
+.task:hover {
+
+    border-color: var(--border);
+}
+
+
+.task input[type="checkbox"] {
+
+    width: 18px;
+    height: 18px;
+
+    accent-color: var(--primary);
+
+    cursor: pointer;
+}
+
+
+.task-content {
+
+    flex: 1;
+}
+
+
+.task-content h3 {
+
+    color: var(--text);
+
+    font-size: 14px;
+
+    margin-bottom: 4px;
+}
+
+
+.task-content p {
+
+    color: var(--muted);
+
+    font-size: 11px;
+}
+
+
+.task.completed .task-content h3 {
+
+    text-decoration: line-through;
+
+    opacity: 0.6;
+}
+
+
+.task-status,
+.task-priority {
+
+    padding: 6px 10px;
+
+    border-radius: 20px;
+
+    font-size: 10px;
+
+    font-weight: 600;
+
+    white-space: nowrap;
+}
+
+
+.task-status {
+
+    background: var(--light-purple);
+
+    color: var(--primary);
+}
+
+
+.task-priority {
+
+    background: rgba(236, 72, 153, 0.1);
+
+    color: var(--accent);
+}
+
+
+/* =====================================================
+   TASK MODAL
+===================================================== */
+
+.modal-overlay {
+
+    position: fixed;
+
+    inset: 0;
+
+    background: rgba(20, 15, 30, 0.55);
+
+    display: none;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 20px;
+
+    z-index: 1000;
+}
+
+
+.modal-overlay.active {
+
+    display: flex;
+}
+
+
+.task-modal {
+
+    width: 100%;
+
+    max-width: 450px;
+
+    background: var(--card);
+
+    border: 1px solid var(--border);
+
+    border-radius: 16px;
+
+    padding: 25px;
+
+    box-shadow:
+        0 20px 50px rgba(0, 0, 0, 0.2);
+}
+
+
+.modal-header {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-bottom: 22px;
+}
+
+
+.modal-header h2 {
+
+    color: var(--text);
+
+    font-size: 20px;
+}
+
+
+.close-modal {
+
+    width: 32px;
+    height: 32px;
+
+    border: none;
+
+    border-radius: 8px;
+
+    background: var(--background);
+
+    color: var(--muted);
+
+    font-size: 20px;
+
+    cursor: pointer;
+}
+
+
+.close-modal:hover {
+
+    color: var(--accent);
+}
+
+
+.task-modal form {
+
+    display: flex;
+
+    flex-direction: column;
+}
+
+
+.task-modal label {
+
+    color: var(--text);
+
+    font-size: 12px;
+
+    font-weight: 600;
+
+    margin-top: 12px;
+
+    margin-bottom: 6px;
+}
+
+
+.task-modal input,
+.task-modal select {
+
+    width: 100%;
+
+    padding: 11px 12px;
+
+    border: 1px solid var(--border);
+
+    border-radius: 8px;
+
+    outline: none;
+
+    background: var(--input);
+
+    color: var(--text);
+
+    font-size: 13px;
+}
+
+
+.task-modal input:focus,
+.task-modal select:focus {
+
+    border-color: var(--primary);
+}
+
+
+.save-task {
+
+    margin-top: 20px;
+
+    padding: 12px;
+
+    border: none;
+
+    border-radius: 9px;
+
+    background: var(--primary);
+
+    color: white;
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+}
+
+
+.save-task:hover {
+
+    background: var(--primary-dark);
+}
+
+
+/* =====================================================
+   PROGRESS PAGE
+===================================================== */
+
+.overall-progress {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 40px;
+
+    padding: 30px;
+
+    margin-bottom: 20px;
+}
+
+
+.overall-progress .progress-circle {
+
+    width: 150px;
+
+    height: 150px;
+
+    background:
+        conic-gradient(var(--primary) 68%,
+            var(--light-purple) 68%);
+}
+
+
+.overall-progress .progress-circle::before {
+
+    width: 112px;
+
+    height: 112px;
+
+    background: var(--card);
+}
+
+
+.progress-info {
+
+    flex: 1;
+}
+
+
+.progress-info h2 {
+
+    color: var(--text);
+
+    font-size: 20px;
+
+    margin-bottom: 7px;
+}
+
+
+.progress-info>p {
+
+    color: var(--muted);
+
+    font-size: 13px;
+
+    margin-bottom: 18px;
+}
+
+
+.large-progress-bar {
+
+    width: 100%;
+
+    height: 9px;
+
+    background: var(--light-purple);
+
+    border-radius: 10px;
+
+    overflow: hidden;
+
+    margin-bottom: 20px;
+}
+
+
+.large-progress {
+
+    height: 100%;
+
+    border-radius: 10px;
+
+    background:
+        linear-gradient(90deg,
+            var(--primary),
+            var(--accent));
+}
+
+
+.progress-numbers {
+
+    display: flex;
+
+    gap: 40px;
+}
+
+
+.progress-numbers div {
+
+    display: flex;
+
+    flex-direction: column;
+}
+
+
+.progress-numbers strong {
+
+    color: var(--text);
+
+    font-size: 18px;
+}
+
+
+.progress-numbers span {
+
+    color: var(--muted);
+
+    font-size: 10px;
+}
+
+
+/* =====================================================
+   SUBJECT PROGRESS
+===================================================== */
+
+.subject-section {
+
+    padding: 22px;
+
+    margin-bottom: 20px;
+}
+
+
+.subject-section>h2 {
+
+    color: var(--text);
+
+    font-size: 18px;
+
+    margin-bottom: 20px;
+}
+
+
+.subject {
+
+    margin-bottom: 20px;
+}
+
+
+.subject:last-child {
+
+    margin-bottom: 0;
+}
+
+
+.subject-header {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    margin-bottom: 8px;
+}
+
+
+.subject-header span {
+
+    color: var(--text);
+
+    font-size: 13px;
+}
+
+
+.subject-header strong {
+
+    color: var(--primary);
+
+    font-size: 12px;
+}
+
+
+.subject-bar {
+
+    width: 100%;
+
+    height: 8px;
+
+    background: var(--light-purple);
+
+    border-radius: 10px;
+
+    overflow: hidden;
+}
+
+
+.subject-fill {
+
+    height: 100%;
+
+    border-radius: 10px;
+
+    background:
+        linear-gradient(90deg,
+            var(--primary),
+            var(--accent));
+}
+
+
+/* =====================================================
+   RISK SECTION
+===================================================== */
+
+.risk-section {
+
+    padding: 22px;
+
+    margin-bottom: 20px;
+}
+
+
+.risk-item {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    padding: 15px;
+
+    border-radius: 10px;
+
+    background: var(--background);
+
+    margin-bottom: 10px;
+}
+
+
+.risk-item:last-child {
+
+    margin-bottom: 0;
+}
+
+
+.risk-item h3 {
+
+    color: var(--text);
+
+    font-size: 14px;
+
+    margin-bottom: 4px;
+}
+
+
+.risk-item p {
+
+    color: var(--muted);
+
+    font-size: 11px;
+}
+
+
+.risk-item>span {
+
+    background: rgba(236, 72, 153, 0.1);
+
+    color: var(--accent);
+
+    padding: 6px 10px;
+
+    border-radius: 20px;
+
+    font-size: 10px;
+
+    font-weight: 600;
+}
+
+
+/* =====================================================
+   RECENT ACTIVITY
+===================================================== */
+
+.activity-section {
+
+    padding: 22px;
+
+    margin-bottom: 20px;
+}
+
+
+.activity-section>h2 {
+
+    color: var(--text);
+
+    font-size: 18px;
+
+    margin-bottom: 18px;
+}
+
+
+.activity {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    padding: 13px;
+
+    background: var(--background);
+
+    border-radius: 10px;
+
+    margin-bottom: 10px;
+}
+
+
+.activity:last-child {
+
+    margin-bottom: 0;
+}
+
+
+.activity>span {
+
+    width: 28px;
+    height: 28px;
+
+    border-radius: 50%;
+
+    background: var(--light-purple);
+
+    color: var(--primary);
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 12px;
+}
+
+
+.activity h3 {
+
+    color: var(--text);
+
+    font-size: 13px;
+
+    margin-bottom: 3px;
+}
+
+
+.activity p {
+
+    color: var(--muted);
+
+    font-size: 10px;
+}
+
+
+/* =====================================================
+   RESPONSIVE - 900px
+===================================================== */
 
 @media (max-width: 900px) {
 
-    .sidebar {
-
-        width: 210px;
+    :root {
+        --sidebar-width: 210px;
     }
+
 
     .main-content {
 
-        margin-left: 210px;
-
-        width: calc(100% - 210px);
-
         padding: 25px;
     }
+
 
     .stats {
 
@@ -936,25 +2088,37 @@ html.dark-mode .calendar-day.today {
             repeat(2, 1fr);
     }
 
+
     .bottom-grid {
 
         grid-template-columns: 1fr;
     }
+
+
+    .overall-progress {
+
+        gap: 25px;
+    }
+
 }
 
 
-/* =========================================
-   TABLET / MOBILE
-========================================= */
+/* =====================================================
+   RESPONSIVE - 700px
+===================================================== */
 
 @media (max-width: 700px) {
 
-    .sidebar {
+    :root {
+        --sidebar-width: 70px;
+    }
 
-        width: 70px;
+
+    .sidebar {
 
         padding: 20px 10px;
     }
+
 
     .logo {
 
@@ -963,15 +2127,18 @@ html.dark-mode .calendar-day.today {
         padding-bottom: 30px;
     }
 
+
     .logo h2 {
 
         font-size: 18px;
     }
 
+
     .logo p {
 
         display: none;
     }
+
 
     .nav-item {
 
@@ -980,10 +2147,12 @@ html.dark-mode .calendar-day.today {
         padding: 12px 5px;
     }
 
+
     .nav-item span:last-child {
 
         display: none;
     }
+
 
     .theme-switch {
 
@@ -992,10 +2161,12 @@ html.dark-mode .calendar-day.today {
         padding: 10px 0;
     }
 
+
     #themeText {
 
         display: none;
     }
+
 
     .theme-toggle {
 
@@ -1003,6 +2174,7 @@ html.dark-mode .calendar-day.today {
 
         height: 20px;
     }
+
 
     .toggle-circle {
 
@@ -1015,25 +2187,66 @@ html.dark-mode .calendar-day.today {
         left: 3px;
     }
 
+
     html.dark-mode .toggle-circle {
 
         left: 18px;
     }
 
+
     .main-content {
-
-        margin-left: 70px;
-
-        width: calc(100% - 70px);
 
         padding: 20px;
     }
+
+
+    .large-calendar {
+
+        min-width: 650px;
+    }
+
+
+    .calendar-page-card {
+
+        overflow-x: auto;
+    }
+
+
+    .calendar-top {
+
+        align-items: flex-start;
+
+        flex-direction: column;
+
+        gap: 15px;
+    }
+
+
+    .calendar-info {
+
+        flex-wrap: wrap;
+    }
+
+
+    .overall-progress {
+
+        flex-direction: column;
+
+        align-items: flex-start;
+    }
+
+
+    .progress-numbers {
+
+        gap: 25px;
+    }
+
 }
 
 
-/* =========================================
-   SMALL MOBILE
-========================================= */
+/* =====================================================
+   RESPONSIVE - 500px
+===================================================== */
 
 @media (max-width: 500px) {
 
@@ -1042,10 +2255,20 @@ html.dark-mode .calendar-day.today {
         padding: 15px;
     }
 
-    .topbar h1 {
+
+    .topbar h1,
+    .page-header h1,
+    .header h1 {
 
         font-size: 22px;
     }
+
+
+    .stats {
+
+        grid-template-columns: 1fr;
+    }
+
 
     .exam-card {
 
@@ -1058,10 +2281,6 @@ html.dark-mode .calendar-day.today {
         gap: 15px;
     }
 
-    .stats {
-
-        grid-template-columns: 1fr;
-    }
 
     .calendar-preview {
 
@@ -1069,10 +2288,63 @@ html.dark-mode .calendar-day.today {
             repeat(3, 1fr);
     }
 
+
     .progress-container {
 
         flex-direction: column;
 
         gap: 20px;
     }
+
+
+    .header {
+
+        align-items: flex-start;
+
+        gap: 15px;
+
+        flex-direction: column;
+    }
+
+
+    .task-filters {
+
+        overflow-x: auto;
+
+        padding-bottom: 5px;
+    }
+
+
+    .filter {
+
+        white-space: nowrap;
+    }
+
+
+    .task {
+
+        align-items: flex-start;
+    }
+
+
+    .task-priority,
+    .task-status {
+
+        font-size: 9px;
+    }
+
+
+    .revision-item {
+
+        align-items: flex-start;
+
+        gap: 10px;
+    }
+
+
+    .overall-progress {
+
+        padding: 20px;
+    }
+
 }
