@@ -5,255 +5,224 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Adaptive Revision Calendar</title>
+    <title>Memora - Dashboard</title>
 
     <link rel="stylesheet" href="style.css">
+
+    <!-- Apply saved theme -->
+    <script>
+        if (localStorage.getItem("theme") === "dark") {
+            document.documentElement.classList.add("dark-mode");
+        }
+    </script>
 </head>
 
 <body>
 
     <div class="dashboard">
 
+        <!-- SIDEBAR -->
         <aside class="sidebar">
 
+            <!-- LOGO -->
             <div class="logo">
-                <span>
-                    <h2>MEMORA</h2>
-                </span>
+                <h2>Mem<span>ora</span></h2>
+                <p>Study smarter</p>
             </div>
 
+            <!-- NAVIGATION -->
             <nav class="navigation">
 
-                <a href="index.html" class="nav-item active">
-
-                    Dashboard
-
+                <a href="dashboard.html" class="nav-item active">
+                    <span class="nav-icon">🏠</span>
+                    <span>Dashboard</span>
                 </a>
 
                 <a href="calendar.html" class="nav-item">
-
-                    Calendar
-
+                    <span class="nav-icon">📅</span>
+                    <span>Calendar</span>
                 </a>
 
                 <a href="task.html" class="nav-item">
-
-                    Tasks
-
+                    <span class="nav-icon">✓</span>
+                    <span>Tasks</span>
                 </a>
 
                 <a href="progress.html" class="nav-item">
-
-                    Progress
-
+                    <span class="nav-icon">📊</span>
+                    <span>Progress</span>
                 </a>
 
             </nav>
-              <!-- Night Mode -->
-                    <button id="darkModeBtn" class="dark-mode-btn">
-                        🌙
-                    </button>
+
+            <!-- THEME TOGGLE -->
+            <div class="theme-switch">
+
+                <span id="themeIcon">🌙</span>
+
+                <span id="themeText">
+                    Dark Mode
+                </span>
+
+                <button id="themeToggle" class="theme-toggle" type="button" aria-label="Toggle dark mode"
+                    aria-pressed="false">
+
+                    <span class="toggle-circle"></span>
+
+                </button>
+
+            </div>
+
         </aside>
 
 
+        <!-- MAIN CONTENT -->
         <main class="main-content">
 
-            <header class="header">
+            <header class="topbar">
 
-                <div class="welcome">
-
-                    <h1>Good Morning</h1>
-                    <p>
-                        Let's make today productive.
-                    </p>
-
+                <div>
+                    <h1>Good Morning! 👋</h1>
+                    <p>Ready to make today's study count?</p>
                 </div>
 
             </header>
 
 
+            <!-- EXAM CARD -->
             <section class="exam-card">
 
-                <div class="exam-info">
+                <div>
+                    <p class="small-title">UPCOMING EXAM</p>
 
-                    <p class="small-heading">
-                        UPCOMING EXAM
+                    <h2>JavaScript Examination</h2>
+
+                    <p>
+                        Keep going! You are making progress every day.
                     </p>
-
-                    <h2>
-                        Data Structures & Algorithms
-                    </h2>
-
-                    <p class="exam-date">
-                        September 30, 2026
-                    </p>
-
                 </div>
 
-
-                <div class="exam-countdown">
-
-                    <span>12</span>
-
-                    <p>Days Remaining</p>
-
-                </div>
-
-
-                <div class="good-luck">
-
-                    <p>Good luck!</p>
-
-                    <span>
-                        You've got this.
-                    </span>
-
+                <div class="exam-date">
+                    <strong>15</strong>
+                    <span>OCT</span>
                 </div>
 
             </section>
 
+
+            <!-- STATS -->
             <section class="stats">
 
                 <div class="stat-card">
+                    <div class="stat-icon">📚</div>
 
-                    <div class="stat-top">
-                        <p>Total Tasks</p>
-
+                    <div>
+                        <h3>12</h3>
+                        <p>Topics</p>
                     </div>
-
-                    <h2>8</h2>
-
-                    <p class="stat-description">
-                        5 completed
-                    </p>
-
                 </div>
 
 
                 <div class="stat-card">
+                    <div class="stat-icon">✓</div>
 
-                    <div class="stat-top">
-                        <p>Progress</p>
+                    <div>
+                        <h3>8</h3>
+                        <p>Completed</p>
                     </div>
-
-                    <h2>68%</h2>
-
-                    <div class="progress-bar">
-
-                        <div class="progress">
-                        </div>
-
-                    </div>
-
                 </div>
 
 
                 <div class="stat-card">
+                    <div class="stat-icon">🔥</div>
 
-                    <div class="stat-top">
-                        <p>At Risk</p>
+                    <div>
+                        <h3>5</h3>
+                        <p>Day Streak</p>
                     </div>
+                </div>
 
-                    <h2>2</h2>
 
-                    <p class="stat-description">
-                        Topics need revision
-                    </p>
+                <div class="stat-card">
+                    <div class="stat-icon">⏱️</div>
 
+                    <div>
+                        <h3>24h</h3>
+                        <p>Study Time</p>
+                    </div>
                 </div>
 
             </section>
 
 
-            <!-- ================= TODAY'S PLAN ================= -->
-
-            <section class="today-section">
+            <!-- TODAY'S PLAN -->
+            <section class="content-card">
 
                 <div class="section-header">
 
                     <div>
-
                         <h2>Today's Plan</h2>
-
-                        <p>
-                            Tuesday, September 22
-                        </p>
-
+                        <p>Your tasks for today</p>
                     </div>
 
-                    <button class="add-task">
-                        + Add Task
-                    </button>
+                    <a href="task.html" class="view-all">
+                        View All
+                    </a>
 
                 </div>
 
 
                 <div class="task-list">
 
-                    <!-- COMPLETED TASK -->
+                    <div class="task-item">
 
-                    <div class="task completed">
-
-                        <input type="checkbox" checked>
-
-                        <div class="task-content">
-
-                            <h3>Binary Search</h3>
-
-                            <p>
-                                Data Structures
-                            </p>
-
+                        <div class="task-check">
+                            ✓
                         </div>
 
-                        <span class="task-status">
-                            Completed
+                        <div class="task-info">
+                            <h3>JavaScript Promises</h3>
+                            <p>Learn promises and async programming</p>
+                        </div>
+
+                        <span class="task-time">
+                            10:00 AM
                         </span>
 
                     </div>
 
 
-                    <!-- TASK -->
+                    <div class="task-item">
 
-                    <div class="task">
-
-                        <input type="checkbox">
-
-                        <div class="task-content">
-
-                            <h3>Linked List</h3>
-
-                            <p>
-                                Data Structures
-                            </p>
-
+                        <div class="task-check">
+                            ✓
                         </div>
 
-                        <span class="task-priority">
-                            High
+                        <div class="task-info">
+                            <h3>Array Problems</h3>
+                            <p>Practice 3 LeetCode problems</p>
+                        </div>
+
+                        <span class="task-time">
+                            2:00 PM
                         </span>
 
                     </div>
 
 
-                    <!-- TASK -->
+                    <div class="task-item">
 
-                    <div class="task">
-
-                        <input type="checkbox">
-
-                        <div class="task-content">
-
-                            <h3>Recursion</h3>
-
-                            <p>
-                                Algorithms
-                            </p>
-
+                        <div class="task-check">
+                            ✓
                         </div>
 
-                        <span class="task-priority">
-                            Medium
+                        <div class="task-info">
+                            <h3>Revision</h3>
+                            <p>Revise yesterday's topics</p>
+                        </div>
+
+                        <span class="task-time">
+                            7:00 PM
                         </span>
 
                     </div>
@@ -263,144 +232,107 @@
             </section>
 
 
-            <!-- ================= CALENDAR ================= -->
+            <!-- BOTTOM GRID -->
+            <div class="bottom-grid">
 
-            <section class="calendar-section">
+                <!-- CALENDAR -->
+                <section class="content-card">
 
-                <div class="section-header">
+                    <div class="section-header">
 
-                    <div>
+                        <div>
+                            <h2>Revision Calendar</h2>
+                            <p>Your study schedule</p>
+                        </div>
 
-                        <h2>Revision Calendar</h2>
-
-                        <p>
-                            Track what you've completed each day.
-                        </p>
-
-                    </div>
-
-                    <div class="calendar-controls">
-
-                        <button>‹</button>
-
-                        <span>September 2026</span>
-
-                        <button>›</button>
+                        <a href="calendar.html" class="view-all">
+                            View
+                        </a>
 
                     </div>
 
-                </div>
+                    <div class="calendar-preview">
 
+                        <div class="calendar-day completed">
+                            <span>MON</span>
+                            <strong>28</strong>
+                            <small>✓</small>
+                        </div>
 
-                <!-- DAYS -->
+                        <div class="calendar-day completed">
+                            <span>TUE</span>
+                            <strong>29</strong>
+                            <small>✓</small>
+                        </div>
 
-                <div class="calendar">
+                        <div class="calendar-day today">
+                            <span>WED</span>
+                            <strong>30</strong>
+                            <small>Today</small>
+                        </div>
 
-                    <div class="calendar-day-name">
-                        Mon
-                    </div>
+                        <div class="calendar-day">
+                            <span>THU</span>
+                            <strong>01</strong>
+                        </div>
 
-                    <div class="calendar-day-name">
-                        Tue
-                    </div>
-
-                    <div class="calendar-day-name">
-                        Wed
-                    </div>
-
-                    <div class="calendar-day-name">
-                        Thu
-                    </div>
-
-                    <div class="calendar-day-name">
-                        Fri
-                    </div>
-
-                    <div class="calendar-day-name">
-                        Sat
-                    </div>
-
-                    <div class="calendar-day-name">
-                        Sun
-                    </div>
-
-
-                    <!-- WEEK -->
-
-                    <div class="day">
-                        <span>21</span>
-                        <small>✓ Arrays</small>
-                    </div>
-
-                    <div class="day today">
-                        <span>22</span>
-
-                        <small>
-                            ✓ Binary Search
-                        </small>
-
-                        <small>
-                            ✓ Linked List
-                        </small>
+                        <div class="calendar-day">
+                            <span>FRI</span>
+                            <strong>02</strong>
+                        </div>
 
                     </div>
 
-                    <div class="day">
-                        <span>23</span>
+                </section>
+
+
+                <!-- PROGRESS -->
+                <section class="content-card">
+
+                    <div class="section-header">
+
+                        <div>
+                            <h2>Progress</h2>
+                            <p>Your overall progress</p>
+                        </div>
+
+                        <a href="progress.html" class="view-all">
+                            View
+                        </a>
+
                     </div>
 
-                    <div class="day">
-                        <span>24</span>
+
+                    <div class="progress-container">
+
+                        <div class="progress-circle">
+                            <strong>67%</strong>
+                        </div>
+
+                        <div class="progress-details">
+
+                            <p>
+                                <span></span>
+                                Completed
+                            </p>
+
+                            <p>
+                                <span></span>
+                                Remaining
+                            </p>
+
+                        </div>
+
                     </div>
 
-                    <div class="day">
-                        <span>25</span>
-                    </div>
+                </section>
 
-                    <div class="day">
-                        <span>26</span>
-                    </div>
-
-                    <div class="day">
-                        <span>27</span>
-                    </div>
-
-
-                    <div class="day">
-                        <span>28</span>
-                    </div>
-
-                    <div class="day">
-                        <span>29</span>
-                    </div>
-
-                    <div class="day">
-                        <span>30</span>
-                    </div>
-
-                    <div class="day next-month">
-                        <span>1</span>
-                    </div>
-
-                    <div class="day next-month">
-                        <span>2</span>
-                    </div>
-
-                    <div class="day next-month">
-                        <span>3</span>
-                    </div>
-
-                    <div class="day next-month">
-                        <span>4</span>
-                    </div>
-
-                </div>
-
-            </section>
+            </div>
 
         </main>
 
     </div>
+
 
     <script src="script.js"></script>
 

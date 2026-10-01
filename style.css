@@ -1,6 +1,6 @@
-/* =========================================================
-   RESET
-========================================================= */
+/* =========================================
+   MEMORA - MAIN STYLES
+========================================= */
 
 * {
     margin: 0;
@@ -8,84 +8,139 @@
     box-sizing: border-box;
 }
 
+:root {
+
+    --primary: #8B5CF6;
+    --primary-dark: #7C3AED;
+    --accent: #EC4899;
+
+    --light-purple: #F3E8FF;
+    --background: #FAF7FF;
+
+    --card: #FFFFFF;
+
+    --text: #29233D;
+    --muted: #77718A;
+
+    --border: #E8E1F0;
+
+    --sidebar-width: 240px;
+}
+
+
+/* =========================================
+   BODY
+========================================= */
 
 body {
-    font-family: Arial, sans-serif;
 
-    background-color: #f5f7fb;
+    font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
 
-    color: #202124;
+    background: var(--background);
+
+    color: var(--text);
+
+    transition:
+        background-color 0.3s ease,
+        color 0.3s ease;
 }
 
 
+/* =========================================
+   DASHBOARD
+========================================= */
 
 .dashboard {
-    min-height: 100vh;
 
     display: flex;
+
+    min-height: 100vh;
 }
 
 
-/* =========================================================
+/* =========================================
    SIDEBAR
-========================================================= */
+========================================= */
 
 .sidebar {
-    width: 240px;
+
+    width: var(--sidebar-width);
 
     min-height: 100vh;
 
-    background-color: white;
+    background: var(--card);
 
-    padding: 30px 20px;
+    border-right: 1px solid var(--border);
+
+    padding: 25px 16px;
 
     display: flex;
+
     flex-direction: column;
 
-    border-right: 1px solid #eeeeee;
+    position: fixed;
 
-    flex-shrink: 0;
-    position: relative;
+    left: 0;
+    top: 0;
+
+    transition:
+        background-color 0.3s ease,
+        border-color 0.3s ease;
 }
 
-/* LOGO */
+
+/* =========================================
+   LOGO
+========================================= */
 
 .logo {
-    margin-bottom: 50px;
 
-    padding-left: 10px;
+    padding: 5px 12px 35px;
 }
-
 
 .logo h2 {
-    font-size: 24px;
+
+    font-size: 25px;
+
+    font-weight: 700;
+
+    color: var(--text);
+}
+
+.logo h2 span {
+
+    color: var(--primary);
+}
+
+.logo p {
+
+    margin-top: 4px;
+
+    font-size: 11px;
+
+    color: var(--muted);
 }
 
 
-.logo span {
-    color: #106027;
-}
-
-
-/* NAVIGATION */
+/* =========================================
+   NAVIGATION
+========================================= */
 
 .navigation {
+
     display: flex;
 
     flex-direction: column;
 
-    gap: 8px;
+    gap: 7px;
 }
 
 
 .nav-item {
-    text-decoration: none;
-
-    color: #6b7280;
-
-    padding: 13px 15px;
-
-    border-radius: 8px;
 
     display: flex;
 
@@ -93,124 +148,216 @@ body {
 
     gap: 12px;
 
-    font-size: 15px;
+    padding: 12px 14px;
+
+    border-radius: 10px;
+
+    text-decoration: none;
+
+    color: var(--muted);
+
+    font-size: 14px;
+
+    transition: all 0.25s ease;
+}
+
+
+.nav-icon {
+
+    width: 22px;
+
+    text-align: center;
+
+    font-size: 17px;
 }
 
 
 .nav-item:hover {
-    background-color: #f0f7f2;
 
-    color: #106027;
+    background: var(--light-purple);
+
+    color: var(--primary);
 }
 
 
 .nav-item.active {
-    background-color: #e8f7ed;
 
-    color: #106027;
+    background: var(--light-purple);
+
+    color: var(--primary);
 
     font-weight: 600;
 }
 
 
-/* =========================================================
-   MAIN CONTENT
-========================================================= */
+/* =========================================
+   THEME SWITCH
+========================================= */
 
-.main-content {
+.theme-switch {
+
+    margin-top: auto;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    padding: 12px 10px;
+
+    border-radius: 10px;
+
+    color: var(--muted);
+
+    font-size: 13px;
+}
+
+
+#themeIcon {
+
+    width: 22px;
+
+    text-align: center;
+
+    font-size: 17px;
+}
+
+
+#themeText {
+
     flex: 1;
 
-    padding: 35px 45px;
+    color: var(--muted);
 
-    max-width: 1500px;
-
-    width: 100%;
+    font-size: 13px;
 }
 
 
-/* =========================================================
-   HEADER
-========================================================= */
+/* Toggle button */
 
-.header {
-    display: flex;
+.theme-toggle {
 
-    justify-content: space-between;
+    position: relative;
 
-    align-items: center;
+    width: 42px;
 
-    margin-bottom: 30px;
+    height: 23px;
+
+    border: none;
+
+    border-radius: 20px;
+
+    background: #E9E2F2;
+
+    cursor: pointer;
+
+    padding: 0;
+
+    transition:
+        background-color 0.3s ease;
 }
 
 
-.welcome h1 {
-    font-size: 28px;
+.toggle-circle {
 
-    margin-bottom: 7px;
+    position: absolute;
+
+    top: 3px;
+
+    left: 3px;
+
+    width: 17px;
+
+    height: 17px;
+
+    border-radius: 50%;
+
+    background: #FFFFFF;
+
+    box-shadow:
+        0 1px 4px rgba(0, 0, 0, 0.2);
+
+    transition:
+        left 0.3s ease;
 }
 
 
-.welcome p {
-    color: #777;
+.theme-toggle:hover {
 
-    font-size: 14px;
+    background: #DCCBFA;
 }
 
 
-/* =========================================================
-   GENERAL PAGE HEADER
-   Used on Calendar, Tasks and Progress
-========================================================= */
+/* =========================================
+   MAIN CONTENT
+========================================= */
 
-.page-header {
-    display: flex;
+.main-content {
 
-    justify-content: space-between;
+    margin-left: var(--sidebar-width);
 
-    align-items: center;
+    width: calc(100% - var(--sidebar-width));
 
-    margin-bottom: 30px;
+    padding: 35px 40px;
 }
 
 
-.page-header h1 {
-    font-size: 28px;
+/* =========================================
+   TOP BAR
+========================================= */
 
-    margin-bottom: 7px;
-}
-
-
-.page-header p {
-    color: #777;
-
-    font-size: 14px;
-}
-
-
-/* =========================================================
-   EXAM CARD
-========================================================= */
-
-.exam-card {
-    background-color: #106027;
-
-    color: white;
-
-    border-radius: 15px;
-
-    padding: 28px 32px;
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: space-between;
+.topbar {
 
     margin-bottom: 25px;
 }
 
 
-.small-heading {
+.topbar h1 {
+
+    font-size: 28px;
+
+    margin-bottom: 5px;
+}
+
+
+.topbar p {
+
+    color: var(--muted);
+
+    font-size: 14px;
+}
+
+
+/* =========================================
+   EXAM CARD
+========================================= */
+
+.exam-card {
+
+    background:
+        linear-gradient(135deg,
+            var(--primary),
+            var(--accent));
+
+    color: white;
+
+    border-radius: 18px;
+
+    padding: 25px 30px;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-bottom: 25px;
+}
+
+
+.small-title {
+
     font-size: 11px;
 
     letter-spacing: 1px;
@@ -221,170 +368,155 @@ body {
 }
 
 
-.exam-info h2 {
-    font-size: 22px;
+.exam-card h2 {
 
-    margin-bottom: 8px;
+    font-size: 23px;
+
+    margin-bottom: 7px;
+}
+
+
+.exam-card p {
+
+    font-size: 13px;
+
+    opacity: 0.9;
 }
 
 
 .exam-date {
-    font-size: 13px;
 
-    opacity: 0.8;
+    width: 70px;
+
+    height: 70px;
+
+    border-radius: 14px;
+
+    background: rgba(255, 255, 255, 0.2);
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
 }
 
 
-.exam-countdown {
-    text-align: center;
+.exam-date strong {
+
+    font-size: 25px;
 }
 
 
-.exam-countdown span {
-    font-size: 38px;
+.exam-date span {
 
-    font-weight: bold;
+    font-size: 11px;
+
+    letter-spacing: 1px;
 }
 
 
-.exam-countdown p {
-    font-size: 12px;
-
-    opacity: 0.8;
-}
-
-
-.good-luck {
-    text-align: right;
-}
-
-
-.good-luck p {
-    font-size: 19px;
-
-    font-weight: bold;
-
-    margin-bottom: 5px;
-}
-
-
-.good-luck span {
-    font-size: 13px;
-
-    opacity: 0.8;
-}
-
-
-/* =========================================================
-   STATISTICS
-========================================================= */
+/* =========================================
+   STATS
+========================================= */
 
 .stats {
+
     display: grid;
 
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns:
+        repeat(4, 1fr);
 
-    gap: 20px;
+    gap: 18px;
 
     margin-bottom: 25px;
 }
 
 
 .stat-card {
-    background-color: white;
 
-    padding: 22px;
+    background: var(--card);
 
-    border-radius: 12px;
+    border: 1px solid var(--border);
 
-    border: 1px solid #eeeeee;
-}
+    border-radius: 14px;
 
+    padding: 18px;
 
-.stat-top {
     display: flex;
-
-    justify-content: space-between;
 
     align-items: center;
 
-    margin-bottom: 15px;
+    gap: 14px;
+
+    transition:
+        background-color 0.3s ease,
+        border-color 0.3s ease;
 }
 
 
-.stat-top p {
-    color: #777;
+.stat-icon {
 
-    font-size: 14px;
+    width: 42px;
+
+    height: 42px;
+
+    border-radius: 11px;
+
+    background: var(--light-purple);
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 18px;
 }
 
 
-.stat-top span {
-    color: #106027;
+.stat-card h3 {
 
-    font-weight: bold;
+    font-size: 20px;
+
+    margin-bottom: 2px;
 }
 
 
-.stat-card h2 {
-    font-size: 28px;
+.stat-card p {
 
-    margin-bottom: 8px;
-}
-
-
-.stat-description {
-    color: #888;
+    color: var(--muted);
 
     font-size: 12px;
 }
 
 
-/* =========================================================
-   PROGRESS BAR
-========================================================= */
+/* =========================================
+   CONTENT CARD
+========================================= */
 
-.progress-bar {
-    height: 7px;
+.content-card {
 
-    width: 100%;
+    background: var(--card);
 
-    background-color: #eeeeee;
+    border: 1px solid var(--border);
 
-    border-radius: 10px;
+    border-radius: 15px;
 
-    overflow: hidden;
-}
+    padding: 22px;
 
+    margin-bottom: 20px;
 
-.progress {
-    height: 100%;
-
-    width: 68%;
-
-    background-color: #106027;
-}
-
-
-/* =========================================================
-   TODAY'S PLAN
-========================================================= */
-
-.today-section,
-.calendar-section {
-    background-color: white;
-
-    padding: 25px;
-
-    border-radius: 12px;
-
-    border: 1px solid #eeeeee;
-
-    margin-bottom: 25px;
+    transition:
+        background-color 0.3s ease,
+        border-color 0.3s ease;
 }
 
 
 .section-header {
+
     display: flex;
 
     justify-content: space-between;
@@ -396,661 +528,82 @@ body {
 
 
 .section-header h2 {
-    font-size: 19px;
 
-    margin-bottom: 5px;
+    font-size: 18px;
+
+    margin-bottom: 4px;
 }
 
 
 .section-header p {
-    color: #888;
 
-    font-size: 13px;
+    font-size: 12px;
+
+    color: var(--muted);
 }
 
 
-/* =========================================================
-   ADD TASK BUTTON
-========================================================= */
+.view-all {
 
-.add-task {
-    border: none;
+    color: var(--primary);
 
-    background-color: #106027;
+    text-decoration: none;
 
-    color: white;
+    font-size: 12px;
 
-    padding: 10px 16px;
-
-    border-radius: 8px;
-
-    cursor: pointer;
-
-    font-size: 13px;
+    font-weight: 600;
 }
 
 
-.add-task:hover {
-    background-color: #087a28;
+.view-all:hover {
+
+    color: var(--primary-dark);
 }
 
 
-/* =========================================================
+/* =========================================
    TASK LIST
-========================================================= */
+========================================= */
 
 .task-list {
-    display: flex;
-
-    flex-direction: column;
-}
-
-
-.task {
-    display: flex;
-
-    align-items: center;
-
-    gap: 15px;
-
-    padding: 15px 5px;
-
-    border-bottom: 1px solid #eeeeee;
-}
-
-
-.task:last-child {
-    border-bottom: none;
-}
-
-
-.task input {
-    width: 17px;
-
-    height: 17px;
-
-    cursor: pointer;
-}
-
-
-.task-content {
-    flex: 1;
-}
-
-
-.task-content h3 {
-    font-size: 14px;
-
-    margin-bottom: 4px;
-}
-
-
-.task-content p {
-    font-size: 12px;
-
-    color: #888;
-}
-
-
-/* TASK LABELS */
-
-.task-status,
-.task-priority {
-    font-size: 11px;
-
-    padding: 5px 9px;
-
-    border-radius: 20px;
-}
-
-
-.task-status {
-    background-color: #e8f7ed;
-
-    color: #26834a;
-}
-
-
-.task-priority {
-    background-color: #fff3e6;
-
-    color: #d97706;
-}
-
-
-.task.completed .task-content h3 {
-    text-decoration: line-through;
-
-    color: #999;
-}
-
-
-/* =========================================================
-   CALENDAR CONTROLS
-========================================================= */
-
-.calendar-controls {
-    display: flex;
-
-    align-items: center;
-
-    gap: 15px;
-}
-
-
-.calendar-controls button {
-    border: none;
-
-    background-color: #f5f5f5;
-
-    width: 30px;
-
-    height: 30px;
-
-    border-radius: 6px;
-
-    cursor: pointer;
-}
-
-
-.calendar-controls button:hover {
-    background-color: #e8f7ed;
-
-    color: #106027;
-}
-
-
-.calendar-controls span {
-    font-size: 13px;
-
-    font-weight: 600;
-}
-
-
-/* =========================================================
-   CALENDAR
-========================================================= */
-
-.calendar {
-    display: grid;
-
-    grid-template-columns: repeat(7, 1fr);
-
-    gap: 8px;
-}
-
-
-.calendar-day-name {
-    text-align: center;
-
-    color: #888;
-
-    font-size: 12px;
-
-    padding: 10px;
-}
-
-
-.day {
-    min-height: 80px;
-
-    padding: 10px;
-
-    border: 1px solid #eeeeee;
-
-    border-radius: 8px;
 
     display: flex;
 
     flex-direction: column;
 
-    gap: 5px;
-}
-
-
-.day>span {
-    font-size: 13px;
-
-    font-weight: 600;
-}
-
-
-.day small {
-    font-size: 10px;
-
-    color: #106027;
-
-    background-color: #f0f7f2;
-
-    padding: 3px 5px;
-
-    border-radius: 4px;
-}
-
-
-.day.today {
-    border: 2px solid #106027;
-
-    background-color: #fafaff;
-}
-
-
-.next-month,
-.previous-month {
-    color: #bbb;
-
-    background-color: #fafafa;
-}
-
-
-/* =========================================================
-   CALENDAR PAGE
-========================================================= */
-
-.calendar-page-card {
-    background-color: white;
-
-    padding: 30px;
-
-    border-radius: 12px;
-
-    border: 1px solid #eeeeee;
-
-    margin-bottom: 20px;
-}
-
-
-.calendar-top {
-    display: flex;
-
-    justify-content: space-between;
-
-    align-items: center;
-
-    margin-bottom: 25px;
-}
-
-
-.calendar-top h2 {
-    font-size: 20px;
-
-    margin-bottom: 5px;
-}
-
-
-.calendar-top p {
-    color: #888;
-
-    font-size: 13px;
-}
-
-
-/* LARGE CALENDAR */
-
-.large-calendar {
     gap: 10px;
 }
 
 
-.large-calendar .day {
-    min-height: 110px;
+.task-item {
 
-    padding: 12px;
-}
-
-
-/* EXAM DAY */
-
-.exam-day {
-    border: 2px solid #106027;
-}
-
-
-.exam-day small {
-    background-color: #e8f7ed !important;
-
-    color: #106027 !important;
-
-    font-weight: bold;
-}
-
-
-/* =========================================================
-   CALENDAR LEGEND
-========================================================= */
-
-.calendar-info {
-    background-color: white;
-
-    padding: 18px 25px;
-
-    border-radius: 12px;
-
-    border: 1px solid #eeeeee;
-
-    display: flex;
-
-    gap: 30px;
-
-    margin-bottom: 25px;
-}
-
-
-.legend-item {
     display: flex;
 
     align-items: center;
 
-    gap: 8px;
+    gap: 14px;
+
+    padding: 13px;
+
+    border-radius: 10px;
+
+    background: var(--background);
+
+    transition: background-color 0.3s ease;
 }
 
 
-.legend-item p {
-    font-size: 12px;
+.task-check {
 
-    color: #777;
-}
+    width: 25px;
 
-
-.legend {
-    width: 10px;
-
-    height: 10px;
+    height: 25px;
 
     border-radius: 50%;
-}
 
-
-.completed-dot {
-    background-color: #106027;
-}
-
-
-.today-dot {
-    border: 2px solid #106027;
-}
-
-
-.exam-dot {
-    background-color: #d97706;
-}
-
-
-/* =========================================================
-   CALENDAR TODAY'S REVISION
-========================================================= */
-
-.calendar-summary {
-    background-color: white;
-
-    padding: 25px;
-
-    border-radius: 12px;
-
-    border: 1px solid #eeeeee;
-}
-
-
-.calendar-summary h2 {
-    font-size: 19px;
-
-    margin-bottom: 20px;
-}
-
-
-.revision-list {
-    display: flex;
-
-    flex-direction: column;
-}
-
-
-.revision-item {
-    display: flex;
-
-    justify-content: space-between;
-
-    align-items: center;
-
-    padding: 15px 5px;
-
-    border-bottom: 1px solid #eeeeee;
-}
-
-
-.revision-item:last-child {
-    border-bottom: none;
-}
-
-
-.revision-item h3 {
-    font-size: 14px;
-
-    margin-bottom: 4px;
-}
-
-
-.revision-item p {
-    font-size: 12px;
-
-    color: #888;
-}
-
-
-.completed-label,
-.pending-label {
-    font-size: 11px;
-
-    padding: 5px 9px;
-
-    border-radius: 20px;
-}
-
-
-.completed-label {
-    background-color: #e8f7ed;
-
-    color: #26834a;
-}
-
-
-.pending-label {
-    background-color: #fff3e6;
-
-    color: #d97706;
-}
-
-
-/* =========================================================
-   TASK PAGE
-========================================================= */
-
-
-/* TASK FILTERS */
-
-.task-filters {
-    display: flex;
-
-    gap: 10px;
-
-    margin-bottom: 25px;
-}
-
-
-.filter {
-    border: 1px solid #eeeeee;
-
-    background-color: white;
-
-    padding: 9px 15px;
-
-    border-radius: 7px;
-
-    cursor: pointer;
-
-    color: #777;
-
-    font-size: 12px;
-}
-
-
-.filter:hover {
-    color: #106027;
-}
-
-
-.filter.active {
-    background-color: #106027;
+    background: var(--primary);
 
     color: white;
-
-    border-color: #106027;
-}
-
-
-/* ALL TASKS */
-
-.all-tasks {
-    background-color: white;
-
-    border: 1px solid #eeeeee;
-
-    border-radius: 12px;
-
-    padding: 25px;
-}
-
-
-.task-group {
-    margin-bottom: 30px;
-}
-
-
-.task-group:last-child {
-    margin-bottom: 0;
-}
-
-
-.task-group h2 {
-    font-size: 17px;
-
-    margin-bottom: 15px;
-}
-
-
-/* FULL TASK */
-
-.full-task {
-    display: flex;
-
-    align-items: center;
-
-    gap: 15px;
-
-    padding: 17px 5px;
-
-    border-bottom: 1px solid #eeeeee;
-}
-
-
-.full-task:last-child {
-    border-bottom: none;
-}
-
-
-.full-task input {
-    width: 17px;
-
-    height: 17px;
-
-    cursor: pointer;
-}
-
-
-.full-task .task-content {
-    flex: 1;
-}
-
-
-.full-task h3 {
-    font-size: 14px;
-
-    margin-bottom: 5px;
-}
-
-
-.full-task p {
-    font-size: 12px;
-
-    color: #888;
-}
-
-
-/* TASK PRIORITY */
-
-.high-priority,
-.medium-priority,
-.full-task .task-status {
-    font-size: 11px;
-
-    padding: 5px 9px;
-
-    border-radius: 20px;
-}
-
-
-.high-priority {
-    background-color: #fff3e6;
-
-    color: #d97706;
-}
-
-
-.medium-priority {
-    background-color: #f0f0ff;
-
-    color: #6366f1;
-}
-
-
-/* =========================================================
-   PROGRESS PAGE
-========================================================= */
-
-
-/* OVERALL PROGRESS */
-
-.overall-progress {
-    background-color: white;
-
-    border: 1px solid #eeeeee;
-
-    border-radius: 12px;
-
-    padding: 30px;
-
-    display: flex;
-
-    align-items: center;
-
-    gap: 50px;
-
-    margin-bottom: 25px;
-}
-
-
-/* PROGRESS CIRCLE */
-
-.progress-circle {
-    width: 150px;
-
-    height: 150px;
-
-    border-radius: 50%;
-
-    border: 12px solid #e8f7ed;
-
-    border-top-color: #106027;
 
     display: flex;
 
@@ -1058,372 +611,446 @@ body {
 
     justify-content: center;
 
-    flex-shrink: 0;
+    font-size: 12px;
 }
 
 
-.progress-circle div {
-    text-align: center;
+.task-info {
+
+    flex: 1;
+}
+
+
+.task-info h3 {
+
+    font-size: 13px;
+
+    margin-bottom: 3px;
+}
+
+
+.task-info p {
+
+    color: var(--muted);
+
+    font-size: 11px;
+}
+
+
+.task-time {
+
+    color: var(--muted);
+
+    font-size: 11px;
+}
+
+
+/* =========================================
+   BOTTOM GRID
+========================================= */
+
+.bottom-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        1.5fr 1fr;
+
+    gap: 20px;
+}
+
+
+/* =========================================
+   CALENDAR
+========================================= */
+
+.calendar-preview {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(5, 1fr);
+
+    gap: 8px;
+}
+
+
+.calendar-day {
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 5px;
+
+    padding: 10px 5px;
+
+    border-radius: 10px;
+
+    background: var(--background);
+
+    color: var(--muted);
+}
+
+
+.calendar-day span {
+
+    font-size: 9px;
+
+    font-weight: 600;
+}
+
+
+.calendar-day strong {
+
+    font-size: 18px;
+
+    color: var(--text);
+}
+
+
+.calendar-day small {
+
+    font-size: 9px;
+}
+
+
+.calendar-day.completed {
+
+    background: var(--light-purple);
+
+    color: var(--primary);
+}
+
+
+.calendar-day.completed strong {
+
+    color: var(--primary);
+}
+
+
+.calendar-day.today {
+
+    background: var(--primary);
+
+    color: white;
+}
+
+
+.calendar-day.today strong {
+
+    color: white;
+}
+
+
+/* =========================================
+   PROGRESS
+========================================= */
+
+.progress-container {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 30px;
+}
+
+
+.progress-circle {
+
+    width: 110px;
+
+    height: 110px;
+
+    border-radius: 50%;
+
+    background:
+        conic-gradient(var(--primary) 67%,
+            var(--light-purple) 67%);
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    position: relative;
+}
+
+
+.progress-circle::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 80px;
+
+    height: 80px;
+
+    border-radius: 50%;
+
+    background: var(--card);
 }
 
 
 .progress-circle strong {
-    display: block;
 
-    font-size: 30px;
-}
-
-
-.progress-circle span {
-    font-size: 11px;
-
-    color: #888;
-}
-
-
-/* PROGRESS INFO */
-
-.progress-info {
-    flex: 1;
-}
-
-
-.progress-info h2 {
-    font-size: 20px;
-
-    margin-bottom: 7px;
-}
-
-
-.progress-info>p {
-    color: #888;
-
-    font-size: 13px;
-
-    margin-bottom: 20px;
-}
-
-
-/* LARGE PROGRESS */
-
-.large-progress-bar {
-    height: 8px;
-
-    background-color: #eeeeee;
-
-    border-radius: 10px;
-
-    overflow: hidden;
-
-    margin-bottom: 20px;
-}
-
-
-.large-progress {
-    height: 100%;
-
-    width: 68%;
-
-    background-color: #106027;
-}
-
-
-/* PROGRESS NUMBERS */
-
-.progress-numbers {
-    display: flex;
-
-    gap: 40px;
-}
-
-
-.progress-numbers strong {
-    display: block;
+    position: relative;
 
     font-size: 20px;
+
+    color: var(--text);
 }
 
 
-.progress-numbers span {
-    font-size: 11px;
+.progress-details p {
 
-    color: #888;
-}
+    color: var(--muted);
 
+    font-size: 12px;
 
-/* =========================================================
-   SUBJECT PROGRESS
-========================================================= */
-
-.subject-section {
-    background-color: white;
-
-    border: 1px solid #eeeeee;
-
-    border-radius: 12px;
-
-    padding: 25px;
-
-    margin-bottom: 25px;
-}
-
-
-.subject-section h2,
-.activity-section h2 {
-    font-size: 19px;
-
-    margin-bottom: 25px;
-}
-
-
-.subject {
-    margin-bottom: 22px;
-}
-
-
-.subject:last-child {
-    margin-bottom: 0;
-}
-
-
-.subject-header {
-    display: flex;
-
-    justify-content: space-between;
-
-    margin-bottom: 8px;
-
-    font-size: 13px;
-}
-
-
-.subject-header strong {
-    color: #106027;
-}
-
-
-.subject-bar {
-    height: 7px;
-
-    background-color: #eeeeee;
-
-    border-radius: 10px;
-
-    overflow: hidden;
-}
-
-
-.subject-fill {
-    height: 100%;
-
-    background-color: #106027;
-}
-
-
-/* =========================================================
-   AT RISK
-========================================================= */
-
-.risk-section {
-    background-color: white;
-
-    border: 1px solid #eeeeee;
-
-    border-radius: 12px;
-
-    padding: 25px;
-
-    margin-bottom: 25px;
-}
-
-
-.risk-section .section-header {
     margin-bottom: 10px;
 }
 
 
-.risk-item {
-    display: flex;
+/* =========================================
+   DARK MODE
+========================================= */
 
-    justify-content: space-between;
+html.dark-mode {
 
-    align-items: center;
+    --background: #12101A;
 
-    padding: 15px 5px;
+    --card: #1E1B26;
 
-    border-bottom: 1px solid #eeeeee;
+    --text: #F3F0F7;
+
+    --muted: #AAA3B8;
+
+    --border: #342D40;
+
+    --light-purple: #2E2347;
 }
 
 
-.risk-item:last-child {
-    border-bottom: none;
+/* Dark sidebar */
+
+html.dark-mode .sidebar {
+
+    background: #18151F;
+
+    border-color: var(--border);
 }
 
 
-.risk-item h3 {
-    font-size: 14px;
+/* Dark navigation */
 
-    margin-bottom: 4px;
+html.dark-mode .nav-item:hover,
+html.dark-mode .nav-item.active {
+
+    background: #2E2347;
+
+    color: #C4B5FD;
 }
 
 
-.risk-item p {
-    font-size: 12px;
+/* Dark toggle */
 
-    color: #888;
+html.dark-mode .theme-toggle {
+
+    background: var(--primary);
 }
 
 
-.risk-item span {
-    font-size: 11px;
+html.dark-mode .toggle-circle {
 
-    padding: 5px 9px;
-
-    border-radius: 20px;
-
-    background-color: #fff3e6;
-
-    color: #d97706;
+    left: 22px;
 }
 
 
-/* =========================================================
-   RECENT ACTIVITY
-========================================================= */
+html.dark-mode .theme-toggle:hover {
 
-.activity-section {
-    background-color: white;
-
-    border: 1px solid #eeeeee;
-
-    border-radius: 12px;
-
-    padding: 25px;
+    background: var(--primary-dark);
 }
 
 
-.activity {
-    display: flex;
+/* Dark task */
 
-    align-items: center;
+html.dark-mode .task-item {
 
-    gap: 15px;
-
-    padding: 14px 5px;
-
-    border-bottom: 1px solid #eeeeee;
+    background: #18151F;
 }
 
 
-.activity:last-child {
-    border-bottom: none;
+/* Dark calendar */
+
+html.dark-mode .calendar-day {
+
+    background: #18151F;
 }
 
 
-.activity>span {
-    width: 30px;
+html.dark-mode .calendar-day.completed {
 
-    height: 30px;
-
-    border-radius: 50%;
-
-    background-color: #e8f7ed;
-
-    color: #106027;
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    font-size: 12px;
+    background: #2E2347;
 }
 
 
-.activity h3 {
-    font-size: 13px;
+html.dark-mode .calendar-day.today {
 
-    margin-bottom: 4px;
+    background: var(--primary);
 }
 
 
-.activity p {
-    color: #888;
-
-    font-size: 11px;
-}
-
-
-/* =========================================================
-   RESPONSIVE DESIGN
-========================================================= */
-
-
-/* TABLET */
+/* =========================================
+   MOBILE
+========================================= */
 
 @media (max-width: 900px) {
 
     .sidebar {
-        width: 190px;
+
+        width: 210px;
     }
 
-
     .main-content {
+
+        margin-left: 210px;
+
+        width: calc(100% - 210px);
+
         padding: 25px;
     }
 
+    .stats {
 
-    .exam-card {
-        flex-direction: column;
-
-        align-items: flex-start;
-
-        gap: 20px;
+        grid-template-columns:
+            repeat(2, 1fr);
     }
 
+    .bottom-grid {
 
-    .good-luck {
-        text-align: left;
+        grid-template-columns: 1fr;
     }
-
-
-    .overall-progress {
-        gap: 30px;
-    }
-
 }
 
 
-/* MOBILE */
+/* =========================================
+   TABLET / MOBILE
+========================================= */
 
 @media (max-width: 700px) {
 
     .sidebar {
+
+        width: 70px;
+
+        padding: 20px 10px;
+    }
+
+    .logo {
+
+        text-align: center;
+
+        padding-bottom: 30px;
+    }
+
+    .logo h2 {
+
+        font-size: 18px;
+    }
+
+    .logo p {
+
         display: none;
     }
 
+    .nav-item {
+
+        justify-content: center;
+
+        padding: 12px 5px;
+    }
+
+    .nav-item span:last-child {
+
+        display: none;
+    }
+
+    .theme-switch {
+
+        justify-content: center;
+
+        padding: 10px 0;
+    }
+
+    #themeText {
+
+        display: none;
+    }
+
+    .theme-toggle {
+
+        width: 35px;
+
+        height: 20px;
+    }
+
+    .toggle-circle {
+
+        width: 14px;
+
+        height: 14px;
+
+        top: 3px;
+
+        left: 3px;
+    }
+
+    html.dark-mode .toggle-circle {
+
+        left: 18px;
+    }
 
     .main-content {
+
+        margin-left: 70px;
+
+        width: calc(100% - 70px);
+
         padding: 20px;
     }
+}
 
 
-    .stats {
-        grid-template-columns: 1fr;
+/* =========================================
+   SMALL MOBILE
+========================================= */
+
+@media (max-width: 500px) {
+
+    .main-content {
+
+        padding: 15px;
     }
 
+    .topbar h1 {
 
-    .header {
-        flex-direction: column;
-
-        align-items: flex-start;
-
-        gap: 20px;
+        font-size: 22px;
     }
 
+    .exam-card {
 
-    .page-header {
+        padding: 20px;
+
         flex-direction: column;
 
         align-items: flex-start;
@@ -1431,527 +1058,21 @@ body {
         gap: 15px;
     }
 
+    .stats {
 
-    .calendar {
-        overflow-x: auto;
-
-        min-width: 650px;
+        grid-template-columns: 1fr;
     }
 
+    .calendar-preview {
 
-    .calendar-page-card {
-        overflow-x: auto;
+        grid-template-columns:
+            repeat(3, 1fr);
     }
 
+    .progress-container {
 
-    .calendar-top {
         flex-direction: column;
-
-        align-items: flex-start;
 
         gap: 20px;
     }
-
-
-    .calendar-info {
-        flex-direction: column;
-
-        gap: 12px;
-    }
-
-
-    .overall-progress {
-        flex-direction: column;
-
-        align-items: flex-start;
-
-        gap: 25px;
-    }
-
-
-    .progress-numbers {
-        gap: 20px;
-    }
-
-
-    .task-filters {
-        overflow-x: auto;
-
-        padding-bottom: 5px;
-    }
-
-}
-
-
-/* SMALL MOBILE */
-
-@media (max-width: 500px) {
-
-    .exam-card {
-        padding: 22px;
-    }
-
-
-    .exam-info h2 {
-        font-size: 18px;
-    }
-
-
-    .calendar-page-card,
-    .all-tasks,
-    .overall-progress,
-    .subject-section,
-    .risk-section,
-    .activity-section {
-        padding: 20px;
-    }
-
-
-    .full-task,
-    .task,
-    .revision-item,
-    .risk-item {
-        gap: 10px;
-    }
-
-
-    .progress-circle {
-        width: 130px;
-
-        height: 130px;
-    }
-
-
-    .progress-circle strong {
-        font-size: 26px;
-    }
-
-}
-/* =================================
-   ADD TASK MODAL
-================================= */
-
-/* Dark background behind popup */
-
-.modal-overlay {
-    display: none;
-
-    position: fixed;
-
-    top: 0;
-    left: 0;
-
-    width: 100%;
-    height: 100%;
-
-    background: rgba(0, 0, 0, 0.45);
-
-    justify-content: center;
-    align-items: center;
-
-    z-index: 9999;
-}
-
-
-/* Popup box */
-
-.task-modal {
-    width: 420px;
-
-    background: white;
-
-    padding: 25px;
-
-    border-radius: 12px;
-
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
-}
-
-
-/* Popup heading */
-
-.modal-header {
-    display: flex;
-
-    justify-content: space-between;
-    align-items: center;
-
-    margin-bottom: 20px;
-}
-
-.modal-header h2 {
-    margin: 0;
-
-    font-size: 22px;
-
-    color: #202124;
-}
-
-
-/* Close button */
-
-.close-modal {
-    border: none;
-
-    background: transparent;
-
-    font-size: 28px;
-
-    color: #777;
-
-    cursor: pointer;
-
-    line-height: 1;
-}
-
-.close-modal:hover {
-    color: #202124;
-}
-
-
-/* Form */
-
-#newTaskForm {
-    display: flex;
-
-    flex-direction: column;
-
-    gap: 8px;
-}
-
-
-/* Labels */
-
-#newTaskForm label {
-    font-size: 14px;
-
-    font-weight: 600;
-
-    color: #333;
-
-    margin-top: 8px;
-}
-
-
-/* Inputs */
-
-#newTaskForm input,
-#newTaskForm select {
-    width:100%;
-
-    padding:11px 12px;
-
-    border:1px solid #dcdcdc;
-
-    border-radius:7px;
-
-    font-size:14px;
-
-    background:white;
-
-    outline:none;
-}
-
-#newTaskForm input:focus,
-#newTaskForm select:focus {
-    border-color: #106027;
-}
-
-
-/* Add Task button */
-
-.save-task {
-    width:100%;
-
-    margin-top:15px;
-
-    padding:12px;
-
-    border:none;
-
-    border-radius:7px;
-
-    background:#106027;
-
-    color:white;
-
-    font-size:15px;
-
-    font-weight:600;
-
-    cursor:pointer;
-}
-
-.save-task:hover {
-    background: #0b4d20;
-}
-
-
-/* Dark Mode */
-
-
-body.dark-mode {
-    background-color: #121212;
-    color: #f5f5f5;
-}
-
-/* Sidebar */
-
-body.dark-mode .sidebar {
-    background-color: #181818;
-    border-color: #333;
-}
-
-body.dark-mode .nav-item {
-    color: #aaa;
-}
-
-body.dark-mode .nav-item:hover {
-    background-color: #252525;
-}
-
-body.dark-mode .nav-item.active {
-    background-color: #263b2d;
-    color: #7ee49a;
-}
-
-/* Main headings and text */
-
-body.dark-mode h1,
-body.dark-mode h2,
-body.dark-mode h3,
-body.dark-mode p,
-body.dark-mode span {
-    color: #f5f5f5;
-}
-
-/* Cards */
-
-body.dark-mode .stat-card,
-body.dark-mode .today-section,
-body.dark-mode .calendar-section,
-body.dark-mode .calendar-page-card,
-body.dark-mode .calendar-info,
-body.dark-mode .calendar-summary,
-body.dark-mode .all-tasks,
-body.dark-mode .overall-progress,
-body.dark-mode .subject-section,
-body.dark-mode .risk-section,
-body.dark-mode .activity-section {
-    background-color: #1e1e1e;
-    border-color: #333;
-}
-
-/* Tasks */
-
-body.dark-mode .task,
-body.dark-mode .full-task,
-body.dark-mode .revision-item,
-body.dark-mode .risk-item,
-body.dark-mode .activity {
-    background-color: #1e1e1e;
-    border-color: #333;
-}
-
-/* Calendar */
-
-body.dark-mode .day {
-    background-color: #1e1e1e;
-    border-color: #333;
-}
-
-body.dark-mode .next-month,
-body.dark-mode .previous-month {
-    background-color: #181818;
-    color: #666;
-}
-
-/* Buttons */
-
-body.dark-mode .calendar-controls button,
-body.dark-mode .filter {
-    background-color: #2a2a2a;
-    color: #eee;
-    border-color: #444;
-}
-
-/* Theme button */
-
-body.dark-mode .theme-toggle {
-    background-color: #2a2a2a;
-    color: white;
-}
-
-
-
-/* Dark Mode Button */
-
-.dark-mode-btn{
-     margin-top: auto;
-
-    width: 45px;
-    height: 45px;
-
-    border: none;
-    border-radius: 10px;
-
-    background-color: #f5f5f5;
-
-    cursor: pointer;
-
-    font-size: 20px;
-
-    align-self: flex-start;
-}
-
-.dark-mode-btn:hover{
-    background-color:#e8f7ed;
-}
-
-.theme-toggle {
-    position: absolute;
-    bottom: 30px;
-    right: 20px;
-
-    width: 45px;
-    height: 45px;
-
-    border: none;
-    border-radius: 10px;
-
-    background-color: #f5f5f5;
-    font-size: 20px;
-
-    cursor: pointer;
-}
-
-.theme-toggle:hover {
-    background-color: #e8e8e8;
-}
-
-/* Dark Mode - Add Task Modal */
-
-body.dark-mode .task-modal {
-    background-color: #1e1e1e;
-    color: #f5f5f5;
-}
-
-body.dark-mode .modal-header h2 {
-    color: #f5f5f5;
-}
-
-body.dark-mode #newTaskForm label {
-    color: #ddd;
-}
-
-body.dark-mode #newTaskForm input,
-body.dark-mode #newTaskForm select {
-    background-color: #2a2a2a;
-    color: #f5f5f5;
-    border-color: #444;
-}
-
-body.dark-mode #newTaskForm input::placeholder {
-    color: #999;
-}
-
-body.dark-mode .close-modal {
-    color: #aaa;
-}
-
-body.dark-mode .close-modal:hover {
-    color: white;
-}
-
-/* Dark Mode Additional Fixes */
-
-/* Typography fixes for contrast */
-body.dark-mode .task-content p,
-body.dark-mode .full-task p,
-body.dark-mode .revision-item p,
-body.dark-mode .risk-item p,
-body.dark-mode .activity p,
-body.dark-mode .stat-description,
-body.dark-mode .stat-top p,
-body.dark-mode .welcome p,
-body.dark-mode .page-header p,
-body.dark-mode .section-header p,
-body.dark-mode .calendar-top p,
-body.dark-mode .legend-item p,
-body.dark-mode .progress-info > p,
-body.dark-mode .calendar-day-name,
-body.dark-mode .subject-header {
-    color: #aaa;
-}
-
-body.dark-mode .logo span,
-body.dark-mode .stat-top span,
-body.dark-mode .subject-header strong {
-    color: #7ee49a;
-}
-
-body.dark-mode .progress-circle span,
-body.dark-mode .progress-numbers span,
-body.dark-mode .exam-countdown p,
-body.dark-mode .good-luck span {
-    color: #aaa;
-}
-
-/* Labels and Tags */
-body.dark-mode .task-status,
-body.dark-mode .completed-label,
-body.dark-mode .day small,
-body.dark-mode .activity > span {
-    background-color: #1a2e21;
-    color: #7ee49a;
-}
-
-body.dark-mode .exam-day small {
-    background-color: #1a2e21 !important;
-    color: #7ee49a !important;
-}
-
-body.dark-mode .task-priority,
-body.dark-mode .high-priority,
-body.dark-mode .pending-label,
-body.dark-mode .risk-item span {
-    background-color: #3d2a13;
-    color: #ffb866;
-}
-
-body.dark-mode .medium-priority {
-    background-color: #22223b;
-    color: #9a9dff;
-}
-
-/* Progress Bars */
-body.dark-mode .progress-bar,
-body.dark-mode .large-progress-bar,
-body.dark-mode .subject-bar {
-    background-color: #333;
-}
-
-body.dark-mode .progress-circle {
-    border-color: #1a2e21;
-    border-top-color: #7ee49a;
-}
-
-/* Calendar elements */
-body.dark-mode .day.today {
-    border-color: #7ee49a;
-    background-color: #1a2e21;
-}
-
-body.dark-mode .exam-day {
-    border-color: #ffb866;
-}
-
-/* Dark Mode Button */
-body.dark-mode .dark-mode-btn {
-    background-color: #2a2a2a;
-    color: #f5f5f5;
-}
-
-body.dark-mode .dark-mode-btn:hover {
-    background-color: #3a3a3a;
 }
