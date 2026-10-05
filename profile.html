@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Memora - Profile</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Prevent light-mode flash -->
+    <script>
+        if (localStorage.getItem("theme") === "dark") {
+            document.documentElement.classList.add("dark-mode");
+        }
+    </script>
+
+</head>
+
+
+<body>
+
+    <div class="dashboard">
+
+        <!-- ================= SIDEBAR ================= -->
+
+        <aside class="sidebar">
+
+            <div class="logo">
+                <h2>Mem<span>ora</span></h2>
+                <p>Study smarter</p>
+            </div>
+
+
+            <nav class="navigation">
+
+                <a href="index.html" class="nav-item">
+                    <span class="nav-icon">🏠</span>
+                    <span>Dashboard</span>
+                </a>
+
+                <a href="calendar.html" class="nav-item">
+                    <span class="nav-icon">📅</span>
+                    <span>Calendar</span>
+                </a>
+
+                <a href="task.html" class="nav-item">
+                    <span class="nav-icon">✓</span>
+                    <span>Tasks</span>
+                </a>
+
+                <a href="progress.html" class="nav-item">
+                    <span class="nav-icon">📊</span>
+                    <span>Progress</span>
+                </a>
+
+            </nav>
+
+            <!-- THEME TOGGLE -->
+
+            <div class="theme-switch">
+
+                <span id="themeIcon">🌙</span>
+
+                <span id="themeText">
+                    Dark Mode
+                </span>
+
+                <button id="themeToggle" class="theme-toggle" type="button" aria-label="Toggle dark mode"
+                    aria-pressed="false">
+
+                    <span class="toggle-circle"></span>
+
+                </button>
+
+            </div>
+
+        </aside>
+
+
+
+        <!-- ================= MAIN ================= -->
+
+        <main class="main-content">
+
+
+            <!-- HEADER -->
+
+            <header class="topbar">
+
+                <div>
+
+                    <h1>
+                        My Profile
+                    </h1>
+
+                    <p>
+                        Manage your personal information
+                    </p>
+
+                </div>
+
+                <a href="profile.html" class="profile-btn" aria-label="Profile">
+                    👤
+                </a>
+
+            </header>
+
+            <section class="profile-card">
+
+                <div class="profile-header">
+
+                    <div class="profile-picture">
+                        👤
+                    </div>
+
+                    <div>
+                        <h2>Student Name</h2>
+                        <p>student@example.com</p>
+                    </div>
+
+                </div>
+
+                <div class="profile-info">
+
+                    <div class="info-row">
+                        <span>Course</span>
+                        <strong>B.Tech CSE</strong>
+                    </div>
+
+                    <div class="info-row">
+                        <span>Year</span>
+                        <strong>2nd Year</strong>
+                    </div>
+
+                    <div class="info-row">
+                        <span>University/College</span>
+                        <strong>University/College Name</strong>
+                    </div>
+
+                </div>
+
+                <div class="buttons">
+
+                    <button id="editProfile">
+                        Edit Profile
+                    </button>
+
+                    <button id="logout" class="logout">
+                        Logout
+                    </button>
+
+                </div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
