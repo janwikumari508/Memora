@@ -142,11 +142,28 @@
                 </div>
 
 
-                <button class="add-task" id="addTaskBtn" type="button">
+                <div class="global-header-actions">
 
-                    + Add Task
+                    <button type="button" class="global-create-task-button" data-create-task>
+                        <span>+</span>
+                        Create Task
+                    </button>
 
-                </button>
+                    <button type="button" class="global-profile-button" data-profile-button aria-label="Open profile">
+                        <span class="profile-avatar">
+                            J
+                        </span>
+
+                        <span class="profile-button-name">
+                            Janwi
+                        </span>
+
+                        <span class="profile-arrow">
+                            ▾
+                        </span>
+                    </button>
+
+                </div>
 
             </header>
 
@@ -460,6 +477,7 @@
 
 
     <script src="script.js"></script>
+    <script src="task-system.js"></script>
 
 </body>
 
