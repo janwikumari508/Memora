@@ -2348,6 +2348,7 @@ html.dark-mode .theme-toggle:hover {
     }
 
 }
+
 /* =========================================================
    GLOBAL MEMORA HEADER
    ========================================================= */
@@ -3179,4 +3180,392 @@ html.dark-mode .theme-toggle:hover {
         width: 100%;
     }
 
+}
+
+
+/* =====================================================
+   LOADING PAGE
+   ===================================================== */
+
+/* The loading page body fills the full screen and centers content */
+.loading-page-body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background: var(--background);
+    text-align: center;
+}
+
+/* Wrapper that holds the logo, tagline, and dots */
+.loading-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+}
+
+/* Big MEMORA heading on the loading page */
+.loading-container h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--text);
+    letter-spacing: 2px;
+}
+
+/* The "ora" part colored in primary purple */
+.loading-container h1 span {
+    color: var(--primary);
+}
+
+/* Tagline below the logo */
+.loading-container p {
+    font-size: 1rem;
+    color: var(--muted);
+    margin-bottom: 16px;
+}
+
+/* The three bouncing dots container */
+.loading-dots {
+    display: flex;
+    gap: 8px;
+    margin-top: 8px;
+}
+
+/* Each individual dot */
+.loading-dots span {
+    width: 10px;
+    height: 10px;
+    background-color: var(--primary);
+    border-radius: 50%;
+    display: inline-block;
+    animation: dot-bounce 1.4s infinite ease-in-out both;
+}
+
+/* Stagger the animation so each dot bounces at a different time */
+.loading-dots span:nth-child(1) { animation-delay: 0s; }
+.loading-dots span:nth-child(2) { animation-delay: 0.2s; }
+.loading-dots span:nth-child(3) { animation-delay: 0.4s; }
+
+/* The bounce animation: dot grows up and shrinks back */
+@keyframes dot-bounce {
+    0%, 80%, 100% {
+        transform: scale(0.6);
+        opacity: 0.5;
+    }
+    40% {
+        transform: scale(1.2);
+        opacity: 1;
+    }
+}
+
+
+/* =====================================================
+   HOME / COMMON INTERFACE PAGE
+   ===================================================== */
+
+/* Navbar at the top of the home page */
+.home-nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px 48px;
+    background: var(--card);
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+/* The MEMORA brand text in the navbar */
+.home-nav-brand {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--text);
+    text-decoration: none;
+}
+
+.home-nav-brand span {
+    color: var(--primary);
+}
+
+/* Links in the navbar (Products, About Us, Contact) */
+.home-nav-links {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+    list-style: none;
+}
+
+.home-nav-links a {
+    color: var(--muted);
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: color 0.2s;
+}
+
+.home-nav-links a:hover {
+    color: var(--primary);
+}
+
+/* Login and Sign Up buttons in the navbar */
+.home-nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+/* Outline button (Login) */
+.btn-outline {
+    padding: 8px 20px;
+    border: 2px solid var(--primary);
+    border-radius: 8px;
+    background: transparent;
+    color: var(--primary);
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background 0.2s, color 0.2s;
+}
+
+.btn-outline:hover {
+    background: var(--primary);
+    color: #fff;
+}
+
+/* Filled button (Sign Up, Get Started) */
+.btn-primary {
+    padding: 8px 20px;
+    border: none;
+    border-radius: 8px;
+    background: var(--primary);
+    color: #fff;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background 0.2s;
+}
+
+.btn-primary:hover {
+    background: var(--primary-dark);
+}
+
+/* ---- Hero section ---- */
+.home-hero {
+    text-align: center;
+    padding: 72px 24px 48px;
+}
+
+.home-hero h1 {
+    font-size: 2.8rem;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 16px;
+    line-height: 1.2;
+}
+
+.home-hero p {
+    font-size: 1.1rem;
+    color: var(--muted);
+    max-width: 480px;
+    margin: 0 auto 48px;
+}
+
+/* ---- Product cards (Focus + Connect) ---- */
+.home-products {
+    display: flex;
+    justify-content: center;
+    gap: 28px;
+    flex-wrap: wrap;
+    padding: 0 24px 72px;
+}
+
+/* Each product card */
+.product-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 32px 28px;
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+/* Product name heading */
+.product-card h2 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--primary);
+}
+
+/* Small subtitle (Personal workspace / Collaborative workspace) */
+.product-card .product-type {
+    font-size: 0.82rem;
+    color: var(--muted);
+    margin-top: -10px;
+}
+
+/* Feature list inside the card */
+.product-card ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 0;
+}
+
+.product-card ul li {
+    font-size: 0.9rem;
+    color: var(--muted);
+    padding-left: 18px;
+    position: relative;
+}
+
+/* Small dot bullet */
+.product-card ul li::before {
+    content: "●";
+    position: absolute;
+    left: 0;
+    color: var(--primary);
+    font-size: 0.5rem;
+    top: 4px;
+}
+
+/* Get Started button at the bottom of each card */
+.product-card .btn-primary {
+    margin-top: auto;
+    text-align: center;
+    display: block;
+}
+
+/* ---- Info sections (Why Memora, About, Contact) ---- */
+.home-section {
+    padding: 48px 48px;
+    border-top: 1px solid var(--border);
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.home-section h2 {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 12px;
+}
+
+.home-section p {
+    color: var(--muted);
+    font-size: 0.95rem;
+    line-height: 1.7;
+}
+
+/* ---- Footer ---- */
+.home-footer {
+    text-align: center;
+    padding: 24px;
+    border-top: 1px solid var(--border);
+    color: var(--muted);
+    font-size: 0.85rem;
+}
+
+/* ---- Responsive: shrink cards on small screens ---- */
+@media (max-width: 700px) {
+    .home-nav {
+        padding: 16px 20px;
+    }
+
+    .home-nav-links {
+        display: none; /* hide links on very small screens to keep it simple */
+    }
+
+    .home-hero h1 {
+        font-size: 2rem;
+    }
+
+    .product-card {
+        width: 100%;
+        max-width: 360px;
+    }
+
+    .home-section {
+        padding: 36px 20px;
+    }
+
+    .loading-container h1 {
+        font-size: 2.2rem;
+    }
+}
+
+
+/* =====================================================
+   CONTACT US — TEAM MEMBER CARDS
+   ===================================================== */
+
+/* Row that holds both cards — flex so they sit side by side */
+.contact-cards {
+    display: flex;
+    gap: 24px;
+    margin-top: 24px;
+    flex-wrap: wrap; /* wraps to one column on small screens */
+}
+
+/* Individual card — matches the existing .product-card look */
+.contact-card {
+    flex: 1;
+    min-width: 200px;
+    max-width: 280px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 28px 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+}
+
+/* Name text (Ayush / Janwi) */
+.contact-name {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--text);
+    margin: 0;
+}
+
+/* Row of three icons */
+.contact-icons {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+/* Each clickable icon link */
+.contact-icon {
+    color: var(--muted);        /* default icon colour */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: color 0.2s ease, transform 0.2s ease;
+}
+
+/* Lift and colour the icon on hover */
+.contact-icon:hover {
+    color: var(--primary);
+    transform: translateY(-2px);
+}
+
+/* On mobile, stack the cards and stretch them to full width */
+@media (max-width: 600px) {
+    .contact-cards {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .contact-card {
+        width: 100%;
+        max-width: 100%;
+    }
 }
