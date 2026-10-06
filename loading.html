@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memora</title>
+
+    <!-- Using the ONE existing CSS file -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Prevent dark-mode flash on page load -->
+    <script>
+        if (localStorage.getItem("theme") === "dark") {
+            document.documentElement.classList.add("dark-mode");
+        }
+    </script>
+</head>
+
+<!--
+    .loading-page-body  → CSS class in style.css that centers everything
+    id="loading-page"   → JavaScript in script.js looks for this id
+                          to know it is on the loading page and starts the timer
+-->
+<body class="loading-page-body" id="loading-page">
+
+    <div class="loading-container">
+
+        <!-- Logo -->
+        <h1>MEM<span>ORA</span></h1>
+
+        <!-- Tagline -->
+        <p>Your Personal Study Companion</p>
+
+        <!-- Three bouncing dots animation -->
+        <div class="loading-dots">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
+    </div>
+
+    <!-- Using the ONE existing JS file -->
+    <script src="script.js"></script>
+
+</body>
+
+</html>

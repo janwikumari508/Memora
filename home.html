@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memora - Welcome</title>
+
+    <!-- Using the ONE existing CSS file -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Prevent dark-mode flash on page load -->
+    <script>
+        if (localStorage.getItem("theme") === "dark") {
+            document.documentElement.classList.add("dark-mode");
+        }
+    </script>
+</head>
+
+<body>
+
+    <!-- ========== NAVBAR ========== -->
+    <nav class="home-nav">
+
+        <!-- Brand / Logo -->
+        <a href="home.html" class="home-nav-brand">MEM<span>ORA</span></a>
+
+        <!-- Navigation links (middle) -->
+        <ul class="home-nav-links">
+            <li><a href="#products">Products</a></li>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+
+        <!-- Login / Sign Up (right side) -->
+        <div class="home-nav-actions">
+            <a href="login.html" class="btn-outline">Login</a>
+            <a href="login.html" class="btn-primary">Sign Up</a>
+        </div>
+
+    </nav>
+
+
+    <!-- ========== HERO SECTION ========== -->
+    <section class="home-hero">
+
+        <h1>Organize. Focus. Collaborate.</h1>
+
+        <p>One workspace for everything you need to get done.</p>
+
+    </section>
+
+
+    <!-- ========== PRODUCTS SECTION ========== -->
+    <section id="products" class="home-products">
+
+        <!-- MEMORA FOCUS card -->
+        <div class="product-card">
+
+            <h2>MEMORA FOCUS</h2>
+            <p class="product-type">Personal workspace</p>
+
+            <ul>
+                <li>Tasks</li>
+                <li>Calendar</li>
+                <li>Revision</li>
+                <li>Progress</li>
+            </ul>
+
+            <!--
+                Get Started → opens the existing login.html
+                No new login page is created
+            -->
+            <a href="login.html" class="btn-primary">Get Started</a>
+
+        </div>
+
+
+        <!-- MEMORA CONNECT card -->
+        <div class="product-card">
+
+            <h2>MEMORA CONNECT</h2>
+            <p class="product-type">Collaborative workspace</p>
+
+            <ul>
+                <li>Projects</li>
+                <li>Team Tasks</li>
+                <li>Meetings</li>
+                <li>Documents</li>
+                <li>Members</li>
+            </ul>
+
+            <!-- Get Started → also opens the existing login.html -->
+            <a href="login.html" class="btn-primary">Get Started</a>
+
+        </div>
+
+    </section>
+
+
+    <!-- ========== WHY MEMORA ========== -->
+    <section id="why" class="home-section">
+
+        <h2>WHY MEMORA?</h2>
+
+        <p>
+            Memora helps students stay on top of their studies by combining
+            task management, revision scheduling, and progress tracking in one
+            clean, distraction-free workspace. Whether you study alone or with
+            a team, Memora adapts to the way you work.
+        </p>
+
+    </section>
+
+
+    <!-- ========== ABOUT MEMORA ========== -->
+    <section id="about" class="home-section">
+
+        <h2>ABOUT MEMORA</h2>
+
+        <p>
+            Memora was built by students, for students. Our goal is simple:
+            make studying less stressful and more effective. We believe that
+            the right tools can make a real difference in how you learn and
+            how much you retain.
+        </p>
+
+    </section>
+
+
+    <!-- ========== CONTACT ========== -->
+    <section id="contact" class="home-section">
+
+        <h2>CONTACT US</h2>
+
+        <p>
+            Have feedback or questions? We'd love to hear from you.
+            Reach out at <strong>support@memora.app</strong> and we'll
+            get back to you as soon as possible.
+        </p>
+
+    </section>
+
+
+    <!-- ========== FOOTER ========== -->
+    <footer class="home-footer">
+        <p>© 2024 Memora. All rights reserved.</p>
+    </footer>
+
+
+    <!-- Using the ONE existing JS file -->
+    <script src="script.js"></script>
+
+</body>
+
+</html>
