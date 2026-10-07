@@ -657,9 +657,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
     if (loadingPage) {
 
-        // Wait 1.8 seconds, then redirect to the Common Interface
+        // Wait 1.8 seconds, then redirect to the Personal Dashboard
         setTimeout(function () {
-            window.location.href = "home.html";
+            window.location.href = "index.html";
         }, 1800);
 
     }
