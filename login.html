@@ -149,7 +149,7 @@
     <!--
         Simple login logic — kept as plain, easy-to-explain JavaScript.
         When the form is submitted, save a flag to localStorage
-        and redirect to the dashboard (index.html).
+        and redirect to the dashboard (dashboard.html).
     -->
     <script>
         document.getElementById("loginForm").addEventListener("submit", function (event) {
@@ -161,7 +161,7 @@
             localStorage.setItem("memora_logged_in", "true");
 
             // Go to the dashboard
-            window.location.href = "index.html";
+            window.location.href = "dashboard.html";
 
         });
     </script>
