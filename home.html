@@ -54,45 +54,168 @@
     <!-- ========== PRODUCTS SECTION ========== -->
     <section id="products" class="home-products">
 
-        <!-- MEMORA FOCUS card -->
-        <div class="product-card">
+        <!-- ── MEMORA FOCUS — Visual Workspace Showcase ── -->
+        <div class="focus-showcase">
 
-            <h2>MEMORA FOCUS</h2>
-            <p class="product-type">Personal workspace</p>
+            <!-- LEFT: Dashboard preview mockup -->
+            <div class="focus-preview" aria-hidden="true">
 
-            <ul>
-                <li>Tasks</li>
-                <li>Calendar</li>
-                <li>Revision</li>
-                <li>Progress</li>
-            </ul>
+                <!-- Simulated browser/app chrome -->
+                <div class="preview-chrome">
+                    <span class="chrome-dot chrome-red"></span>
+                    <span class="chrome-dot chrome-yellow"></span>
+                    <span class="chrome-dot chrome-green"></span>
+                    <span class="chrome-title">memora — dashboard</span>
+                </div>
 
-            <!--
-                Get Started → opens the existing login.html
-                No new login page is created
-            -->
-            <a href="login.html" class="btn-primary">Get Started</a>
+                <!-- Sidebar -->
+                <div class="preview-body">
+                    <aside class="preview-sidebar">
+                        <div class="preview-brand">MEM<span>ORA</span></div>
+                        <p class="preview-tagline">Study smarter</p>
+                        <nav class="preview-nav">
+                            <div class="preview-nav-item preview-nav-active">
+                                <span>🏠</span> Dashboard
+                            </div>
+                            <div class="preview-nav-item">
+                                <span>📅</span> Calendar
+                            </div>
+                            <div class="preview-nav-item">
+                                <span>✔</span> Tasks
+                            </div>
+                            <div class="preview-nav-item">
+                                <span>📊</span> Progress
+                            </div>
+                        </nav>
+                        <div class="preview-theme-toggle">
+                            ☀️ <span>Light Mode</span>
+                        </div>
+                    </aside>
+
+                    <!-- Main content area -->
+                    <main class="preview-main">
+                        <div class="preview-header-row">
+                            <div>
+                                <h3>Good Morning! 👋</h3>
+                                <p>Ready to make today's study count?</p>
+                            </div>
+                            <div class="preview-create-btn">+ Create Task</div>
+                        </div>
+
+                        <!-- Exam banner -->
+                        <div class="preview-exam-banner">
+                            <div>
+                                <div class="preview-exam-label">UPCOMING EXAM</div>
+                                <div class="preview-exam-title">JavaScript Examination</div>
+                                <div class="preview-exam-sub">Keep going! You are making progress every day.</div>
+                            </div>
+                            <div class="preview-exam-date">15<br><small>OCT</small></div>
+                        </div>
+
+                        <!-- Stats row -->
+                        <div class="preview-stats">
+                            <div class="preview-stat">📚 <strong>3</strong><br><small>Topics</small></div>
+                            <div class="preview-stat">✔ <strong>0</strong><br><small>Completed</small></div>
+                            <div class="preview-stat">🔥 <strong>5</strong><br><small>Day Streak</small></div>
+                            <div class="preview-stat">🕐 <strong>24h</strong><br><small>Study Time</small></div>
+                        </div>
+
+                        <!-- Bottom panels -->
+                        <div class="preview-panels">
+                            <div class="preview-panel preview-panel-wide">
+                                <div class="preview-panel-title">Today's Plan <span>View All</span></div>
+                                <div class="preview-panel-empty">No tasks for today. Click <em>Create Task</em> to add one.</div>
+                            </div>
+                        </div>
+                        <div class="preview-panels preview-panels-split">
+                            <div class="preview-panel">
+                                <div class="preview-panel-title">Revision Calendar <span>View</span></div>
+                                <div class="preview-cal-days">
+                                    <div class="preview-cal-day">MON<br><strong>28</strong></div>
+                                    <div class="preview-cal-day">TUE<br><strong>29</strong></div>
+                                    <div class="preview-cal-day preview-cal-today">WED<br><strong>30</strong><br><small>Today</small></div>
+                                    <div class="preview-cal-day">THU<br><strong>01</strong></div>
+                                    <div class="preview-cal-day">FRI<br><strong>02</strong></div>
+                                </div>
+                            </div>
+                            <div class="preview-panel">
+                                <div class="preview-panel-title">Progress <span>View</span></div>
+                                <div class="preview-progress-ring">
+                                    <svg viewBox="0 0 60 60" width="60" height="60">
+                                        <circle cx="30" cy="30" r="24" fill="none" stroke="#2e2347" stroke-width="6"/>
+                                        <circle cx="30" cy="30" r="24" fill="none" stroke="#a78bfa" stroke-width="6"
+                                            stroke-dasharray="100.5" stroke-dashoffset="33" stroke-linecap="round"
+                                            transform="rotate(-90 30 30)"/>
+                                    </svg>
+                                    <span class="preview-ring-pct">67%</span>
+                                </div>
+                                <div class="preview-legend">
+                                    <span class="preview-dot-purple"></span> Completed
+                                    <span class="preview-dot-gray"></span> Remaining
+                                </div>
+                            </div>
+                        </div>
+                    </main>
+                </div>
+            </div>
+
+            <!-- RIGHT: Text + features + CTA -->
+            <div class="focus-info">
+                <p class="focus-label">PERSONAL WORKSPACE</p>
+                <h2>Memora <span>Focus</span></h2>
+                <p class="focus-desc">
+                    Everything you need to study smarter — manage your tasks,
+                    track your calendar, monitor progress, and stay consistent
+                    with your revision schedule, all in one distraction-free workspace.
+                </p>
+
+                <ul class="focus-features">
+                    <li>
+                        <span class="focus-feature-icon">✔</span>
+                        <span><strong>Tasks</strong> — Add and track your daily study tasks</span>
+                    </li>
+                    <li>
+                        <span class="focus-feature-icon">📅</span>
+                        <span><strong>Calendar</strong> — Plan your revision schedule visually</span>
+                    </li>
+                    <li>
+                        <span class="focus-feature-icon">🔁</span>
+                        <span><strong>Revision</strong> — Spaced repetition to boost retention</span>
+                    </li>
+                    <li>
+                        <span class="focus-feature-icon">📊</span>
+                        <span><strong>Progress</strong> — See how far you've come at a glance</span>
+                    </li>
+                </ul>
+
+                <!--
+                    Get Started → opens login.html
+                -->
+                <a href="login.html" class="btn-primary focus-cta">Get Started</a>
+            </div>
 
         </div>
 
 
-        <!-- MEMORA CONNECT card -->
-        <div class="product-card">
+        <!-- ── MEMORA CONNECT card (unchanged) ── -->
+        <div class="home-connect-row">
+            <div class="product-card">
 
-            <h2>MEMORA CONNECT</h2>
-            <p class="product-type">Collaborative workspace</p>
+                <h2>MEMORA CONNECT</h2>
+                <p class="product-type">Collaborative workspace</p>
 
-            <ul>
-                <li>Projects</li>
-                <li>Team Tasks</li>
-                <li>Meetings</li>
-                <li>Documents</li>
-                <li>Members</li>
-            </ul>
+                <ul>
+                    <li>Projects</li>
+                    <li>Team Tasks</li>
+                    <li>Meetings</li>
+                    <li>Documents</li>
+                    <li>Members</li>
+                </ul>
 
-            <!-- Get Started → also opens the existing login.html -->
-            <a href="login.html" class="btn-primary">Get Started</a>
+                <!-- Connect still goes to login — not a personal workspace entry -->
+                <a href="login.html" class="btn-primary">Get Started</a>
 
+            </div>
         </div>
 
     </section>

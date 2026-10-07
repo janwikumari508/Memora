@@ -3376,9 +3376,9 @@ html.dark-mode .theme-toggle:hover {
 /* ---- Product cards (Focus + Connect) ---- */
 .home-products {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
     gap: 28px;
-    flex-wrap: wrap;
     padding: 0 24px 72px;
 }
 
@@ -3439,6 +3439,401 @@ html.dark-mode .theme-toggle:hover {
     margin-top: auto;
     text-align: center;
     display: block;
+}
+
+/* ── Connect card row — centres the single card below the showcase ── */
+.home-connect-row {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    padding: 0 24px;
+}
+
+/* ================================================================
+   MEMORA FOCUS — VISUAL WORKSPACE SHOWCASE
+   Left: dashboard preview mockup | Right: description + CTA
+   ================================================================ */
+
+/* Full-width wrapper that replaces the old narrow card */
+.focus-showcase {
+    width: 100%;
+    max-width: 1060px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 380px;
+    gap: 40px;
+    align-items: center;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 32px 36px;
+    box-shadow: 0 0 40px -10px rgba(139, 92, 246, 0.18);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Subtle purple glow accent */
+.focus-showcase::before {
+    content: "";
+    position: absolute;
+    top: -60px;
+    left: -60px;
+    width: 260px;
+    height: 260px;
+    background: radial-gradient(circle, rgba(139,92,246,0.12) 0%, transparent 70%);
+    pointer-events: none;
+}
+
+/* ── LEFT: browser-style wrapper around the dashboard preview ── */
+.focus-preview {
+    background: #12101A;
+    border-radius: 14px;
+    border: 1px solid #342D40;
+    overflow: hidden;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.45);
+    font-family: inherit;
+}
+
+/* Fake browser chrome / title bar */
+.preview-chrome {
+    background: #1a1724;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 12px;
+    border-bottom: 1px solid #342D40;
+}
+
+.chrome-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+.chrome-red    { background: #ff5f57; }
+.chrome-yellow { background: #febc2e; }
+.chrome-green  { background: #28c840; }
+
+.chrome-title {
+    font-size: 0.62rem;
+    color: #6b6480;
+    margin-left: 10px;
+    letter-spacing: 0.04em;
+}
+
+/* Container that holds sidebar + main side by side */
+.preview-body {
+    display: flex;
+    height: 340px;
+    overflow: hidden;
+}
+
+/* ── Sidebar ── */
+.preview-sidebar {
+    width: 110px;
+    flex-shrink: 0;
+    background: #18151F;
+    border-right: 1px solid #2a2435;
+    padding: 14px 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.preview-brand {
+    font-size: 0.85rem;
+    font-weight: 800;
+    color: #f3f0f7;
+    letter-spacing: 0.06em;
+}
+.preview-brand span { color: #a78bfa; }
+
+.preview-tagline {
+    font-size: 0.55rem;
+    color: #6b6480;
+    margin: -6px 0 4px;
+}
+
+.preview-nav { display: flex; flex-direction: column; gap: 4px; flex: 1; }
+
+.preview-nav-item {
+    font-size: 0.62rem;
+    color: #aaa3b8;
+    padding: 5px 8px;
+    border-radius: 7px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    cursor: default;
+}
+
+.preview-nav-active {
+    background: #2e2347;
+    color: #a78bfa;
+    font-weight: 700;
+}
+
+.preview-theme-toggle {
+    font-size: 0.55rem;
+    color: #6b6480;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    margin-top: auto;
+}
+
+/* ── Main content area ── */
+.preview-main {
+    flex: 1;
+    padding: 12px 14px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    background: #12101A;
+}
+
+.preview-header-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+.preview-header-row h3 {
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: #f3f0f7;
+    margin: 0;
+}
+.preview-header-row p { font-size: 0.58rem; color: #6b6480; margin: 2px 0 0; }
+
+.preview-create-btn {
+    background: #8b5cf6;
+    color: #fff;
+    font-size: 0.58rem;
+    font-weight: 700;
+    padding: 5px 9px;
+    border-radius: 7px;
+    white-space: nowrap;
+}
+
+/* Exam banner */
+.preview-exam-banner {
+    background: linear-gradient(135deg, #c084fc 0%, #f472b6 100%);
+    border-radius: 10px;
+    padding: 10px 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-shrink: 0;
+}
+.preview-exam-label { font-size: 0.52rem; color: rgba(255,255,255,0.75); font-weight: 600; letter-spacing: 0.06em; }
+.preview-exam-title { font-size: 0.75rem; color: #fff; font-weight: 800; margin: 2px 0; }
+.preview-exam-sub   { font-size: 0.55rem; color: rgba(255,255,255,0.8); }
+.preview-exam-date  {
+    background: rgba(255,255,255,0.25);
+    border-radius: 8px;
+    padding: 6px 8px;
+    font-size: 0.85rem;
+    font-weight: 800;
+    color: #fff;
+    text-align: center;
+    line-height: 1.1;
+    flex-shrink: 0;
+}
+.preview-exam-date small { font-size: 0.5rem; font-weight: 600; opacity: 0.85; }
+
+/* Stats row */
+.preview-stats {
+    display: flex;
+    gap: 6px;
+}
+.preview-stat {
+    flex: 1;
+    background: #1e1b26;
+    border: 1px solid #2a2435;
+    border-radius: 8px;
+    padding: 7px 5px;
+    font-size: 0.56rem;
+    color: #aaa3b8;
+    text-align: center;
+    line-height: 1.4;
+}
+.preview-stat strong { display: block; font-size: 0.76rem; color: #f3f0f7; }
+.preview-stat small  { font-size: 0.52rem; color: #6b6480; }
+
+/* Panel rows */
+.preview-panels {
+    display: flex;
+    gap: 6px;
+}
+.preview-panels-split .preview-panel {
+    flex: 1;
+}
+.preview-panel {
+    background: #1e1b26;
+    border: 1px solid #2a2435;
+    border-radius: 9px;
+    padding: 8px 10px;
+}
+.preview-panel-wide { width: 100%; }
+.preview-panel-title {
+    font-size: 0.65rem;
+    font-weight: 700;
+    color: #f3f0f7;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+}
+.preview-panel-title span { font-size: 0.58rem; color: #a78bfa; font-weight: 600; }
+.preview-panel-empty { font-size: 0.58rem; color: #6b6480; text-align: center; padding: 6px 0; }
+.preview-panel-empty em { color: #a78bfa; font-style: normal; font-weight: 600; }
+
+/* Calendar days */
+.preview-cal-days { display: flex; gap: 4px; justify-content: center; margin-top: 4px; }
+.preview-cal-day {
+    background: #18151f;
+    border: 1px solid #2a2435;
+    border-radius: 6px;
+    padding: 4px 5px;
+    font-size: 0.52rem;
+    color: #aaa3b8;
+    text-align: center;
+    line-height: 1.4;
+}
+.preview-cal-day strong { display: block; font-size: 0.72rem; color: #f3f0f7; }
+.preview-cal-day small  { font-size: 0.45rem; color: #6b6480; }
+.preview-cal-today {
+    background: #2e2347;
+    border-color: #a78bfa;
+    color: #a78bfa;
+}
+.preview-cal-today strong { color: #a78bfa; }
+
+/* Progress ring */
+.preview-progress-ring {
+    position: relative;
+    width: 60px;
+    margin: 4px auto 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.preview-ring-pct {
+    position: absolute;
+    font-size: 0.7rem;
+    font-weight: 800;
+    color: #f3f0f7;
+}
+.preview-legend {
+    font-size: 0.52rem;
+    color: #6b6480;
+    display: flex;
+    gap: 6px;
+    justify-content: center;
+    align-items: center;
+}
+.preview-dot-purple {
+    display: inline-block;
+    width: 7px; height: 7px;
+    border-radius: 50%;
+    background: #a78bfa;
+}
+.preview-dot-gray {
+    display: inline-block;
+    width: 7px; height: 7px;
+    border-radius: 50%;
+    background: #2e2347;
+    border: 1px solid #6b6480;
+}
+
+/* ── RIGHT: info panel ── */
+.focus-info {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.focus-label {
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: var(--primary);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin: 0;
+}
+
+.focus-info h2 {
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--text);
+    margin: 0;
+    line-height: 1.15;
+}
+.focus-info h2 span { color: var(--primary); }
+
+.focus-desc {
+    font-size: 0.9rem;
+    color: var(--muted);
+    line-height: 1.7;
+    margin: 0;
+}
+
+/* Feature list */
+.focus-features {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.focus-features li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 0.88rem;
+    color: var(--muted);
+    line-height: 1.5;
+}
+.focus-features li strong { color: var(--text); }
+
+.focus-feature-icon {
+    width: 28px;
+    height: 28px;
+    border-radius: 8px;
+    background: var(--light-purple);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    flex-shrink: 0;
+}
+
+/* CTA button */
+.focus-cta {
+    display: inline-block;
+    text-align: center;
+    width: fit-content;
+    padding: 12px 32px;
+    margin-top: 4px;
+    font-size: 0.95rem;
+}
+
+/* ── Responsive: stack on narrow screens ── */
+@media (max-width: 900px) {
+    .focus-showcase {
+        grid-template-columns: 1fr;
+        padding: 24px 20px;
+        gap: 28px;
+    }
+    .focus-info h2 { font-size: 1.6rem; }
+}
+
+@media (max-width: 700px) {
+    .preview-body { height: 280px; }
+    .preview-sidebar { width: 86px; padding: 10px 8px; }
+    .preview-brand { font-size: 0.7rem; }
+    .focus-cta { width: 100%; }
 }
 
 /* ---- Info sections (Why Memora, About, Contact) ---- */

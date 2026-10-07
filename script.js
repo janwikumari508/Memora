@@ -648,8 +648,7 @@ document.addEventListener("DOMContentLoaded", function () {
     /* =================================================
        LOADING PAGE — REDIRECT LOGIC
        Runs ONLY when loading.html is open.
-       Checks localStorage, then sends user to home.html
-       after 1.8 seconds.
+       Redirects to home.html after 1.8 seconds.
     ================================================= */
 
     // Look for the element with id="loading-page" (only in loading.html)
@@ -657,7 +656,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     if (loadingPage) {
 
-        // Wait 1.8 seconds, then redirect to the Common Interface
+        // Wait 1.8 seconds, then redirect to the Home Page
         setTimeout(function () {
             window.location.href = "home.html";
         }, 1800);
